@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "category")
@@ -26,4 +25,7 @@ public class Category {
 
     @Column(name = "description", columnDefinition = "NVARCHAR(255)")
     private String description;
+
+    @Column(name = "status")
+    private boolean isActive = true;
 }

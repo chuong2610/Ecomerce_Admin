@@ -1,9 +1,11 @@
 package org.group5.ecomerceadmin.controller;
 
 import org.group5.ecomerceadmin.config.security.JwtUtil;
-import org.group5.ecomerceadmin.dto.request.*;
 import org.group5.ecomerceadmin.entity.Account;
 import org.group5.ecomerceadmin.enums.Role;
+import org.group5.ecomerceadmin.payload.request.LoginRequest;
+import org.group5.ecomerceadmin.payload.request.RegisterRequest;
+import org.group5.ecomerceadmin.payload.response.AuthResponse;
 import org.group5.ecomerceadmin.repository.AccountRepository;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
