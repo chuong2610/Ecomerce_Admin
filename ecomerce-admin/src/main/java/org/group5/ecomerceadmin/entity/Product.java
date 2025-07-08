@@ -31,6 +31,12 @@ public class Product {
     @Column(name = "product_description", columnDefinition = "NVARCHAR(255)")
     private String description;
 
+    @Column(name = "product_image", columnDefinition = "NVARCHAR(255)")
+    private String image;
+
+    @Column(name = "is_active")
+    private boolean isActive = true;
+
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
@@ -42,14 +48,17 @@ public class Product {
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
 
-    public Product(String id, String name, double price, int quantity, String description, Brand brand, Category category) {
+
+    public Product(String id, String name, double price, int quantity, String description, String image, Brand brand, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.description = description;
+        this.image = image;
         this.brand = brand;
         this.category = category;
+        this.isActive = true;
     }
 
     public Product() {
