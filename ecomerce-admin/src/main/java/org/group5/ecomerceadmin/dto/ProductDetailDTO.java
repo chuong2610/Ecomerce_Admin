@@ -1,4 +1,16 @@
 package org.group5.ecomerceadmin.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ProductDetailDTO {
+    private String id;
+    private String name;
+    private String description;
+    private double price;
+    private String imageUrl;
+    private String brand;
+    private String category;
 }
