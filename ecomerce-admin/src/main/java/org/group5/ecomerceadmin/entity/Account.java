@@ -22,11 +22,16 @@ public class Account {
     @Nationalized
     private String username;
 
-    @Column(name = "password",nullable = false, length = 255)
+    @Column(name = "password", nullable = false, length = 255)
     @NotBlank(message = "Password cannot be empty")
     private String password;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
+
+    @Column(name = "full_name", nullable = false, length = 100)
+    @Nationalized
+    @NotBlank(message = "Full name cannot be empty")
+    private String fullName;
 }
