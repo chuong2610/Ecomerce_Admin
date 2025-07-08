@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "product")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Product {
     @Id
     @Column(name = "id")
@@ -38,4 +38,20 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ProductOrder> productOrders;
+
+    public Product(String id, String name, double price, int quantity, String description, Brand brand, Category category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.description = description;
+        this.brand = brand;
+        this.category = category;
+    }
+
+    public Product() {
+    }
 }
