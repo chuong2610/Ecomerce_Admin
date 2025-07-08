@@ -81,11 +81,11 @@ public class DataInitializer implements CommandLineRunner {
     private void initCategories() {
         if (categoryRepository.count() == 0) {
             List<Category> categories = List.of(
-                    new Category("C1", "Laptop", "High-tech laptops"),
-                    new Category("C2", "Smartphone", "Smart mobile phones"),
-                    new Category("C3", "Tablet", "Tablets for work and entertainment"),
-                    new Category("C4", "Headphone", "All kinds of headphones"),
-                    new Category("C5", "Smartwatch", "Wearable smart watches")
+                    new Category("C1", "Laptop", "High-tech laptops", true),
+                    new Category("C2", "Smartphone", "Smart mobile phones", true),
+                    new Category("C3", "Tablet", "Tablets for work and entertainment", true),
+                    new Category("C4", "Headphone", "All kinds of headphones", true),
+                    new Category("C5", "Smartwatch", "Wearable smart watches", true)
             );
             categoryRepository.saveAll(categories);
             System.out.println("✔ Categories initialized.");

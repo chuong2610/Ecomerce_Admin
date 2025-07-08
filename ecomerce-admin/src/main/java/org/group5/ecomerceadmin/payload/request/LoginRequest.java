@@ -1,4 +1,4 @@
-package org.group5.ecomerceadmin.dto.request;
+package org.group5.ecomerceadmin.payload.request;
 
 import lombok.Data;
 
