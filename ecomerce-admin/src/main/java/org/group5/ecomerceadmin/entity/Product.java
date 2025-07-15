@@ -49,7 +49,7 @@ public class Product {
     private List<ProductOrder> productOrders;
 
 
-    public Product(String id, String name, double price, int quantity, String description, String image, Brand brand, Category category) {
+    public Product(String id, String name, double price, int quantity, String description, String image, Brand brand, Category category, boolean isActive) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -58,7 +58,7 @@ public class Product {
         this.image = image;
         this.brand = brand;
         this.category = category;
-        this.isActive = true;
+        this.isActive = isActive;
     }
 
     public Product() {

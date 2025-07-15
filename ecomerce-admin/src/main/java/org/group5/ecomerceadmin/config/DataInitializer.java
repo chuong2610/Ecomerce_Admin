@@ -98,16 +98,16 @@ public class DataInitializer implements CommandLineRunner {
             List<Category> categories = categoryRepository.findAll();
 
             List<Product> products = List.of(
-                    new Product("P1", "MacBook Pro", 2500.0, 10, "High-end Apple laptop","product.jpg", brands.get(0), categories.get(0)),
-                    new Product("P2", "iPhone 15", 1200.0, 15, "Newest Apple smartphone","product.jpg", brands.get(0), categories.get(1)),
-                    new Product("P3", "Galaxy S23", 1100.0, 20, "Samsung flagship smartphone","product.jpg", brands.get(1), categories.get(1)),
-                    new Product("P4", "Galaxy Tab S8", 900.0, 12, "High-end Samsung tablet","product.jpg", brands.get(1), categories.get(2)),
-                    new Product("P5", "Sony WH-1000XM5", 400.0, 25, "Sony noise-canceling headphones","product.jpg", brands.get(2), categories.get(3)),
-                    new Product("P6", "Asus ROG Laptop", 2000.0, 8, "Powerful gaming laptop","product.jpg", brands.get(3), categories.get(0)),
-                    new Product("P7", "Dell XPS 13", 1800.0, 9, "Ultra-thin lightweight laptop","product.jpg", brands.get(4), categories.get(0)),
-                    new Product("P8", "Apple Watch Ultra", 800.0, 18, "Premium Apple smartwatch","product.jpg", brands.get(0), categories.get(4)),
-                    new Product("P9", "Samsung Galaxy Watch 6", 600.0, 14, "Latest Samsung smartwatch","product.jpg", brands.get(1), categories.get(4)),
-                    new Product("P10", "iPad Pro", 1300.0, 11, "Powerful Apple tablet","product.jpg", brands.get(0), categories.get(2))
+                    new Product("P1", "MacBook Pro", 2500.0, 10, "High-end Apple laptop","1.jpg", brands.get(0), categories.get(0),true),
+                    new Product("P2", "iPhone 15", 1200.0, 15, "Newest Apple smartphone","2.jpg", brands.get(0), categories.get(1),true),
+                    new Product("P3", "Galaxy S23", 1100.0, 20, "Samsung flagship smartphone","3.jpg", brands.get(1), categories.get(1),true),
+                    new Product("P4", "Galaxy Tab S8", 900.0, 12, "High-end Samsung tablet","4.jpg", brands.get(1), categories.get(2), true),
+                    new Product("P5", "Sony WH-1000XM5", 400.0, 25, "Sony noise-canceling headphones","5.jpg", brands.get(2), categories.get(3), true),
+                    new Product("P6", "Asus ROG Laptop", 2000.0, 8, "Powerful gaming laptop","6.jpg", brands.get(3), categories.get(0), true),
+                    new Product("P7", "Dell XPS 13", 1800.0, 9, "Ultra-thin lightweight laptop","7.jpg", brands.get(4), categories.get(0), true),
+                    new Product("P8", "Apple Watch Ultra", 800.0, 18, "Premium Apple smartwatch","8.jpg", brands.get(0), categories.get(4), true),
+                    new Product("P9", "Samsung Galaxy Watch 6", 600.0, 14, "Latest Samsung smartwatch","9.jpg", brands.get(1), categories.get(4), true),
+                    new Product("P10", "iPad Pro", 1300.0, 11, "Powerful Apple tablet","10.jpg", brands.get(0), categories.get(2), true)
             );
 
             productRepository.saveAll(products);
