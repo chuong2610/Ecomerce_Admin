@@ -1,5 +1,6 @@
 package org.group5.ecomerceadmin.service;
 
+import org.group5.ecomerceadmin.dto.ProductCreateDTO;
 import org.group5.ecomerceadmin.dto.ProductDTO;
 import org.group5.ecomerceadmin.dto.ProductDetailDTO;
 import org.group5.ecomerceadmin.entity.Brand;
@@ -42,9 +43,27 @@ public class ProductService {
         dto.setCategory(product.getCategory().getName());
         return dto;
     }
+    public ProductCreateDTO findProductCreateDTOById(String id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        if (!product.isActive()) {
+            throw new RuntimeException("Product is inactive");
+        }
+        ProductCreateDTO dto = new ProductCreateDTO();
+        dto.setId(product.getId());
+        dto.setName(product.getName());
+        dto.setDescription(product.getDescription());
+        dto.setPrice(product.getPrice());
+        dto.setQuantity(product.getQuantity());
+        dto.setFile("http://localhost:8080/file/"+product.getImage());
+        dto.setBrandId(product.getBrand().getId());
+        dto.setCategoryId(product.getCategory().getId());
+        return dto;
+    }
     @Transactional
-    public ProductDTO create(ProductRequest request) {
-        Product product = new Product();
+    public ProductDTO saveProduct( ProductRequest request) {
+        Product product= new Product();
+
         if (request.getFile() != null && !request.getFile().isEmpty()) {
             fileService.saveFile(request.getFile());
             product.setImage(request.getFile().getOriginalFilename());
@@ -54,37 +73,18 @@ public class ProductService {
         product.setPrice(request.getPrice());
         product.setDescription(request.getDescription());
         product.setQuantity(request.getQuantity());
+
         Brand brand = new Brand();
         brand.setId(request.getBrandId());
         product.setBrand(brand);
+
         Category category = new Category();
         category.setId(request.getCategoryId());
         product.setCategory(category);
-        product.setActive(true);
+
         return convertToDTO(productRepository.save(product));
     }
 
-    public ProductDTO update(String id, ProductRequest request) {
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
-
-        if (request.getFile() != null && !request.getFile().isEmpty()) {
-            fileService.saveFile(request.getFile());
-            product.setImage(request.getFile().getOriginalFilename());
-        }
-
-        product.setName(request.getName());
-        product.setPrice(request.getPrice());
-        product.setDescription(request.getDescription());
-        product.setQuantity(request.getQuantity());
-        Brand brand = new Brand();
-        brand.setId(request.getBrandId());
-        product.setBrand(brand);
-        Category category = new Category();
-        category.setId(request.getCategoryId());
-        product.setCategory(category);
-        return convertToDTO(productRepository.save(product));
-    }
     public void delete(String id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
@@ -119,6 +119,7 @@ public class ProductService {
         dto.setId(product.getId());
         dto.setName(product.getName());
         dto.setPrice(product.getPrice());
+        dto.setQuantity(product.getQuantity());
         dto.setImageUrl("http://localhost:8080/file/"+product.getImage());
         dto.setBrand(product.getBrand().getName());
         dto.setCategory(product.getCategory().getName());

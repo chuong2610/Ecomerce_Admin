@@ -9,12 +9,12 @@
     <title>Daktar - Hospital Managment HTML Template</title>
     
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/img/icon.png}" type="image/x-icon">
 
     <!--Stylesheets-->
-    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
 
 </head>
 <body>
@@ -23,14 +23,14 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="card p-5">
                 <div class="logo text-center mb-3">
-                    <a href="index.html">
-                        <img src="img/icon.png" alt="Icon">
+                    <a th:href="@{/index.html}">
+                        <img th:src="@{/img/icon.png}" alt="Icon">
                         <span>SalesZone</span>
                     </a>
                 </div>
                 <p class="mb-30px text-center">Enter your Email Address and Password</p>
                 <div class="auth-form">
-                    <form action="https://saleszone.codeblowing.com/index.html">
+                    <form th:action="@{/index.html}">
                         <div class="mb-3">
                             <label for="email" class="w-100">Email:</label>
                             <input type="email" id="email" class="form-control" placeholder="Enter Email">
@@ -49,7 +49,7 @@
                             <button class="btn btn-primary w-100">Login</button>
                         </div>
                     </form>
-                    <p class="text-center">You don't have an account? <a href="signup.html">Signup Now</a></p>
+                    <p class="text-center">You don't have an account? <a th:href="@{/signup.html}">Signup Now</a></p>
                     <div class="social-auth mt-30px">
                         <div class="social-auth-head">
                             <h5>Or Login With</h5>
@@ -67,9 +67,9 @@
     </div>
     
     <!--Javascripts-->
-    <script src="js/plugins/jquery.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script th:src="@{/js/plugins/jquery.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap.min.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
 </body>
 
 <!-- Mirrored from saleszone.codeblowing.com/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:02:59 GMT -->

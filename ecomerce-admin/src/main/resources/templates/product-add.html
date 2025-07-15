@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from saleszone.codeblowing.com/product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:03:41 GMT -->
 <head>
@@ -9,14 +9,14 @@
     <title>SalesZone - eCommerce HTML Admin Template</title>
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/img/icon.png}" type="image/x-icon">
 
     <!--Stylesheets-->
-    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="css/plugins/select2.min.css">
-    <link rel="stylesheet" href="css/plugins/summernote-lite.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/summernote-lite.min.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
 
 </head>
 <body>
@@ -28,8 +28,10 @@
             <div class="logobar">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="img/icon-light.png" alt="Logo">
-                        <span>SalesZone</span>
+                        <span th:href="@{/index.html}">
+                            <img th:src="@{/img/icon-light.png}" alt="Logo">
+                            <span>SalesZone</span>
+                        </span>
                     </a>
                 </div>
                 <span class="toggle-bar"><i class="fa-solid fa-bars"></i></span>
@@ -41,7 +43,7 @@
                         <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-bell"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Notification</strong>
@@ -61,7 +63,7 @@
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -80,7 +82,7 @@
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -99,7 +101,7 @@
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -118,7 +120,7 @@
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -137,7 +139,7 @@
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
                         </ul>
@@ -151,7 +153,7 @@
                         <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-envelope"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Messages</strong>
@@ -165,13 +167,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -184,13 +186,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -203,13 +205,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -222,13 +224,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -241,17 +243,17 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <!--Message Toggle End-->
 
@@ -259,14 +261,14 @@
                 <div class="current-user toggle-item">
                     <div class="dropdown">
                         <a href="#" id="current_user" data-bs-toggle="dropdown">
-                            <img class="img-40px circle" src="img/user1.png" alt="Image">
-                        </a>                      
+                            <img class="img-40px circle" th:src="@{/img/user1.png}" alt="Image">
+                        </a>
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
-                            <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="employees.html">Employees</a></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                            <li><a class="dropdown-item" th:href="@{/update-profile.html}">Profile</a></li>
+                            <li><a class="dropdown-item" th:href="@{/employees.html}">Employees</a></li>
+                            <li><a class="dropdown-item" th:href="@{/login.html}">Logout</a></li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <!--User Info Toggle End-->
             </div>
@@ -386,183 +388,188 @@
                         <li class="breadcrumb-item active">Add Product</li>
                     </ul>
                 </div>
-                <form action="#">
+                <form th:action="@{/products/save}" th:object="${product}" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="card p-20px mb-25px">
                                 <div class="card-title fw-bold">Product Information</div>
                                 <div class="card-body">
-                                    <div class="alert alert-success">Product has been successfully created !</div>
-                                    <div class="mb-3">
-                                        <label for="product_name">Product Name</label>
-                                        <input type="text" id="product_name" class="form-control" placeholder="Enter Product Name">
+                                    <!-- <div class="alert alert-success">Product has been successfully created !</div> -->
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label for="product_id">Product Id</label>
+                                            <input th:field="*{id}" type="text" id="product_id" class="form-control" placeholder="Enter Product Id">
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="product_name">Product Name</label>
+                                            <input th:field="*{name}" type="text" id="product_name" class="form-control" placeholder="Enter Product Name">
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="description">Product Description</label>
-                                        <textarea name="description" id="description"></textarea>
+                                        <textarea th:field="*{description}" name="description" id="description"></textarea>
                                     </div>
                                     <div class="row">                                        
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="category_id">Category</label>
-                                                <select name="category_id" id="category_id" class="form-select">
-                                                    <option value="default">Default</option>
-                                                    <option value="electronics">Electronics</option>
-                                                    <option value="sports">Sports</option>
-                                                    <option value="grocery">Grocery</option>
-                                                    <option value="entertainment">Entertainment</option>
-                                                    <option value="software">Software</option>
+                                                <select th:field="*{categoryId}" name="category_id" id="category_id" class="form-select">
+                                                    <option th:each="c:${categories}" th:value="${c.id}" th:text="${c.name}" th:selected="${product.categoryId!=null && product.categoryId==c.id}">Default</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="brand_id">Brand</label>
                                                 <select name="brand_id" id="brand_id" class="form-select">
-                                                    <option value="sony">Sony</option>
-                                                    <option value="cannon">Cannon</option>
-                                                    <option value="samsung">Samsung</option>
-                                                    <option value="nokia">Nokia</option>
+                                                    <option value="1">Sony</option>
+                                                    <option value="2">Cannon</option>
+                                                    <option value="3">Samsung</option>
+                                                    <option value="4">Nokia</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+<!--                                        <div class="col-md-6">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="publish_date">Publish Date</label>-->
+<!--                                                <input type="date" id="publish_date" placeholder="Publish Date" class="form-control">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-6">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="status">Status</label>-->
+<!--                                                <select name="status" id="status" class="form-select">-->
+<!--                                                    <option value="in-stock">In Stock</option>-->
+<!--                                                    <option value="out-of-stock">Out of Stock</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                        <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="publish_date">Publish Date</label>
-                                                <input type="date" id="publish_date" placeholder="Publish Date" class="form-control">
+                                                <label for="quantity">Quantity</label>
+                                                <input th:field="*{quantity}" type="number" id="quantity" name="quantity" placeholder="Quantity" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="status">Status</label>
-                                                <select name="status" id="status" class="form-select">
-                                                    <option value="in-stock">In Stock</option>
-                                                    <option value="out-of-stock">Out of Stock</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="sku">SKU</label>
-                                                <input type="text" id="sku" placeholder="SKU" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="weight">Weight</label>
-                                                <input type="text" id="weight" placeholder="Weight" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Product Size</div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="size[height]">Height</label>
-                                                <input type="text" name="size[height]" id="size[height]" class="form-control" placeholder="eg. 100mm">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="size[width]">Width</label>
-                                                <input type="text" name="size[width]" id="size[width]" class="form-control" placeholder="eg. 100mm">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="size[Length]">Length</label>
-                                                <input type="text" name="size[height]" id="size[Length]" class="form-control" placeholder="eg. 100mm">
+                                                <label for="price">Price</label>
+                                                <input th:field="*{price}" type="number" id="price" name="price" placeholder="price" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">SEO Information</div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <label for="seo_title">SEO Title</label>
-                                        <input type="text" name="seo_title" id="seo_title" class="form-control" placeholder="Enter SEO Title">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="seo_description">SEO Description</label>
-                                        <textarea type="text" name="seo_description" id="seo_description" class="form-control" placeholder="Enter SEO Description"></textarea>
-                                    </div>
-                                </div>
-                            </div>
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Product Size</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="size[height]">Height</label>-->
+<!--                                                <input type="text" name="size[height]" id="size[height]" class="form-control" placeholder="eg. 100mm">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="size[width]">Width</label>-->
+<!--                                                <input type="text" name="size[width]" id="size[width]" class="form-control" placeholder="eg. 100mm">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="size[Length]">Length</label>-->
+<!--                                                <input type="text" name="size[height]" id="size[Length]" class="form-control" placeholder="eg. 100mm">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">SEO Information</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="mb-3">-->
+<!--                                        <label for="seo_title">SEO Title</label>-->
+<!--                                        <input type="text" name="seo_title" id="seo_title" class="form-control" placeholder="Enter SEO Title">-->
+<!--                                    </div>-->
+<!--                                    <div class="mb-3">-->
+<!--                                        <label for="seo_description">SEO Description</label>-->
+<!--                                        <textarea type="text" name="seo_description" id="seo_description" class="form-control" placeholder="Enter SEO Description"></textarea>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                         <div class="col-lg-4">
                             <div class="card p-20px mb-25px">
                                 <div class="card-title fw-bold">Product Image</div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <img src="img/products/product-thumb.jpg" alt="Image" class="mb-2">
-                                        <input type="file" name="product_image" id="product_image" class="form-control">
+                                        <img th:if="${product.file != null}" th:src="@{${product.file}}" alt="Image" class="mb-2">
+                                        <img th:unless="${product.file != null}" th:src="@{/img/products/1.jpg}" alt="Image" class="mb-2">
+                                        <input th:field="*{file}" type="file" name="product_image" id="product_image" class="form-control" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Product Layout</div>
-                                <div class="card-body">
-                                    <select name="layout" id="layout" class="form-select">
-                                        <option value="default">Default Layout</option>
-                                        <option value="right-sidebar">Right Sidebar</option>
-                                        <option value="left-sidebar">Left Sidebar</option>
-                                        <option value="fullwidth">Full Width</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Visibility</div>
-                                <div class="card-body">
-                                    <select name="visibility" id="visibility" class="form-select">
-                                        <option value="draft">Draft</option>
-                                        <option value="publish">Publish</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Badge</div>
-                                <div class="card-body">
-                                    <select name="badge" id="badge" class="form-select">
-                                        <option value="Sale">Sale</option>
-                                        <option value="Best Seller">Best Seller</option>
-                                        <option value="Discounted">Discounted</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Review</div>
-                                <div class="card-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" id="review" checked>
-                                        <label class="form-check-label" for="review">Enable</label>
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Product Layout</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <select name="layout" id="layout" class="form-select">-->
+<!--                                        <option value="default">Default Layout</option>-->
+<!--                                        <option value="right-sidebar">Right Sidebar</option>-->
+<!--                                        <option value="left-sidebar">Left Sidebar</option>-->
+<!--                                        <option value="fullwidth">Full Width</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Visibility</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <select name="visibility" id="visibility" class="form-select">-->
+<!--                                        <option value="draft">Draft</option>-->
+<!--                                        <option value="publish">Publish</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Badge</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <select name="badge" id="badge" class="form-select">-->
+<!--                                        <option value="Sale">Sale</option>-->
+<!--                                        <option value="Best Seller">Best Seller</option>-->
+<!--                                        <option value="Discounted">Discounted</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Review</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="form-check">-->
+<!--                                        <input class="form-check-input" type="checkbox" value="1" id="review" checked>-->
+<!--                                        <label class="form-check-label" for="review">Enable</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card p-20px mb-25px">-->
+<!--                                <div class="card-title fw-bold">Tags</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <select name="tags" id="tags" class="form-select">-->
+<!--                                        <option value="Sale">Sale</option>-->
+<!--                                        <option value="Best Seller">Best Seller</option>-->
+<!--                                        <option value="Discounted">Discounted</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card p-20px mb-25px">
+                                    <div class="actions d-flex justify-content-between">
+                                        <a th:href="@{/products}" class="btn btn-dark"><i class="fa-solid fa-reply"></i> Back</a>
+                                        <button type="submit" class="btn btn-primary">Add Product</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card p-20px mb-25px">
-                                <div class="card-title fw-bold">Tags</div>
-                                <div class="card-body">
-                                    <select name="tags" id="tags" class="form-select">
-                                        <option value="Sale">Sale</option>
-                                        <option value="Best Seller">Best Seller</option>
-                                        <option value="Discounted">Discounted</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="card p-20px mb-25px">
-                                <div class="actions d-flex justify-content-between">
-                                    <a href="product-list.html" class="btn btn-dark"><i class="fa-solid fa-reply"></i> Back</a>
-                                    <button type="submit" class="btn btn-primary">Add Product</button>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </form> 
             </div>
@@ -579,11 +586,11 @@
     <!-- Wrapper End -->
     
     <!--Javascripts-->
-    <script src="js/plugins/jquery.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/plugins/select2.min.js"></script>
-    <script src="js/plugins/summernote-lite.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script th:src="@{/js/plugins/jquery.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap.min.js}"></script>
+    <script th:src="@{/js/plugins/select2.min.js}"></script>
+    <script th:src="@{/js/plugins/summernote-lite.min.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
     <script>
         $("select").select2();
         $("#tags").select2({
