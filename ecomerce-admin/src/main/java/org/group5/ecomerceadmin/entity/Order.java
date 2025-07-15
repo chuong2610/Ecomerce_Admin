@@ -5,12 +5,13 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.group5.ecomerceadmin.enums.OrderStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "order_detail")
+@Table(name = "order")
 @Data
 public class Order {
     @Id
@@ -26,7 +27,11 @@ public class Order {
     private LocalDateTime orderDate;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "account_id")
@@ -35,7 +40,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
 
-    public Order(double totalPrice, LocalDateTime orderDate, String status, Account account) {
+    public Order(double totalPrice, LocalDateTime orderDate, OrderStatus status, Account account) {
         this.totalPrice = totalPrice;
         this.orderDate = orderDate;
         this.status = status;
