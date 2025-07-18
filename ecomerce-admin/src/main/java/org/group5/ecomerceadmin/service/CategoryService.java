@@ -19,7 +19,7 @@ public class CategoryService {
     }
 
     public List<Category> getAll() {
-        return categoryRepository.findByIsActiveTrue();
+        return categoryRepository.findAll();
     }
 
     public Optional<Category> getById(String id) {

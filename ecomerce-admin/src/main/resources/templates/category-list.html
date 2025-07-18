@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from saleszone.codeblowing.com/category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:04:45 GMT -->
 <head>
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SalesZone - eCommerce HTML Admin Template</title>
-    
+
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 
@@ -39,7 +39,7 @@
                         <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-bell"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Notification</strong>
@@ -59,7 +59,7 @@
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -78,7 +78,7 @@
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -97,7 +97,7 @@
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -116,7 +116,7 @@
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -135,7 +135,7 @@
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
                         </ul>
@@ -149,7 +149,7 @@
                         <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-envelope"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Messages</strong>
@@ -163,13 +163,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -182,13 +182,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -201,13 +201,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -220,13 +220,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -239,13 +239,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
                         </ul>
@@ -258,7 +258,7 @@
                     <div class="dropdown">
                         <a href="#" id="current_user" data-bs-toggle="dropdown">
                             <img class="img-40px circle" src="img/user1.png" alt="Image">
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
                             <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="employees.html">Employees</a></li>
@@ -394,194 +394,31 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Category Name</th>
-                                        <th>Category Slug</th>
-                                        <th>Products</th>
-                                        <th>Date</th>
+                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Electronics</td>
-                                        <td>electronics</td>
-                                        <td>100 Pc</td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Home Appliances</td>
-                                        <td>home-appliances</td>
-                                        <td>250 Pc</td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Health and Beauty</td>
-                                        <td>health-and-beauty</td>
-                                        <td>104 Pc</td>
-                                        <td>2024-11-30</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Books and Stationery</td>
-                                        <td>books-and-stationery</td>
-                                        <td>304 Pc</td>
-                                        <td>2024-12-03</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Jewelry and Accessories</td>
-                                        <td>jewelry-and-accessories</td>
-                                        <td>650 Pc</td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Kitchen & Dining</td>
-                                        <td>kitchen-and-dining</td>
-                                        <td>405 Pc</td>
-                                        <td>2024-12-04</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Baby Products</td>
-                                        <td>baby-products</td>
-                                        <td>805 Pc</td>
-                                        <td>2024-11-29</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Garden and Outdoor</td>
-                                        <td>garden-and-outdoor</td>
-                                        <td>708 Pc</td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Office Supplies</td>
-                                        <td>office-supplies</td>
-                                        <td>695 Pc</td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Mobile & Gadgets</td>
-                                        <td>mobile-and-gadgets</td>
-                                        <td>105 Pc</td>
-                                        <td>2024-11-28</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                <tr th:each="category : ${categories}">
+                                    <td th:text="${category.id}"></td>
+                                    <td th:text="${category.name}"></td>
+                                    <td th:text="${category.description}"></td>
+                                    <td>
+                                        <span class="badge text-bg-secondary" th:if="${category.isActive == true}">Active</span>
+                                        <span class="badge text-bg-secondary" th:if="${category.isActive == false}">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -646,7 +483,7 @@
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
     </div>
 
     <!-- Update Category Modal -->
@@ -684,9 +521,9 @@
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
     </div>
-    
+
     <!--Javascripts-->
     <script src="js/plugins/jquery.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
