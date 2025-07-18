@@ -28,4 +28,12 @@ public class Category {
 
     @Column(name = "status")
     private boolean isActive = true;
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

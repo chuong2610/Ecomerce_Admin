@@ -4,12 +4,14 @@ import jakarta.validation.Valid;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.service.CategoryService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/categories")
+@Controller
+@RequestMapping("/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -19,8 +21,11 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAll() {
-        return ResponseEntity.ok(categoryService.getAll());
+    public String getAll(Model model) {
+        List<Category> categories = categoryService.getAll();
+        model.addAttribute("categories", categories);
+        System.out.println("Categories size: " + categories.size());
+        return "category-list";
     }
 
     @GetMapping("/{id}")

@@ -85,7 +85,7 @@ public class DataInitializer implements CommandLineRunner {
                     new Category("C2", "Smartphone", "Smart mobile phones", true),
                     new Category("C3", "Tablet", "Tablets for work and entertainment", true),
                     new Category("C4", "Headphone", "All kinds of headphones", true),
-                    new Category("C5", "Smartwatch", "Wearable smart watches", true)
+                    new Category("C5", "Smartwatch", "Wearable smart watches", false)
             );
             categoryRepository.saveAll(categories);
             System.out.println("✔ Categories initialized.");
