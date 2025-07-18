@@ -1,6 +1,7 @@
 package org.group5.ecomerceadmin.service;
 
 import jakarta.transaction.Transactional;
+import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,20 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> getAll() {
+    public List<Category> getAllforAdmin() {
         return categoryRepository.findAll();
+    }
+
+    public List<Category> getAllforCustomer() {
+        return categoryRepository.findByIsActiveTrue();
+    }
+
+    public List<Category> searchByNameForAdmin(String name) {
+        return categoryRepository.searchByNameContainingIgnoreCase(name);
+    }
+
+    public List<Category> searchByNameForCustomer(String name) {
+        return categoryRepository.findByIsActiveTrueAndNameContainingIgnoreCase(name);
     }
 
     public Optional<Category> getById(String id) {
@@ -27,11 +40,16 @@ public class CategoryService {
         return category.filter(Category::isActive);
     }
 
-    public Category create(Category category) {
-        if (categoryRepository.existsById(category.getId())) {
-            throw new IllegalArgumentException("Category with id " + category.getId() + " already exists.");
+    public Category create(CategoryRequestDTO categoryRequestDTO) {
+        if (categoryRepository.existsById(categoryRequestDTO.getId())) {
+            throw new IllegalArgumentException("Category already exists.");
         }
+        Category category = new Category();
+        category.setId(categoryRequestDTO.getId());
+        category.setName(categoryRequestDTO.getName());
+        category.setDescription(categoryRequestDTO.getDescription());
         category.setActive(true);
+
         return categoryRepository.save(category);
     }
 
