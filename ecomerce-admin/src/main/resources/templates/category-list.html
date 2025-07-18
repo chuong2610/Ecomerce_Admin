@@ -305,7 +305,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="category-list.html">
+                            <a th:href="@{/categories}">
                                 <span><i class="fa-solid fa-explosion"></i>Categories</span>
                             </a>
                         </li>
@@ -380,12 +380,12 @@
                     <div class="card-title fw-bold font-18px">Category List</div>
                     <div class="card-header mb-3 border-bottom-0">
                         <div class="search">
-                            <form action="#" class="position-relative">
-                                <input type="text" class="form-control ps-5" placeholder="Search Here">
+                            <form th:action="@{/categories}" method="get" class="position-relative">
+                                <input type="text" name="kw" class="form-control ps-5" placeholder="Search Here">
                                 <button class="btn position-absolute top-50 translate-middle-y"><i class="fa-solid fa-search"></i></button>
                             </form>
                         </div>
-                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory"><i class="fa-solid fa-plus me-2"></i>Add Category</a>
+                        <a th:href="@{/categories}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory"><i class="fa-solid fa-plus me-2"></i>Add Category</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -423,15 +423,15 @@
                             </table>
                         </div>
                         <!-- Pagination Start -->
-                        <div class="pagination-wrapper">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>
-                            </ul>
-                        </div>
+<!--                        <div class="pagination-wrapper">-->
+<!--                            <ul class="pagination justify-content-end">-->
+<!--                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                         <!-- Pagination End -->
                     </div>
                 </div>
@@ -452,29 +452,23 @@
     <div class="modal fade" id="addCategory" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/categories}" th:method="post">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">Add New Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
+                            <label for="category_id">Category id</label>
+                            <input type="text" id="category_id" placeholder="Category Name" class="form-control" name="id">
+                        </div>
+                        <div class="mb-3">
                             <label for="category_name">Category Name</label>
-                            <input type="text" placeholder="Category Name" class="form-control">
+                            <input type="text" id="category_name" placeholder="Category Name" class="form-control" name="name">
                         </div>
                         <div class="mb-3">
-                            <label for="parent_category">Parent Category</label>
-                            <select name="parent_category" id="parent_category" class="form-select">
-                                <option value="fashion">Fashion</option>
-                                <option value="electronics">Electronics</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="status">Status</label>
-                            <select name="status" id="status" class="form-select">
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
-                            </select>
+                            <label for="parent_categories">Description</label>
+                            <input type="text" id="parent_categories" placeholder="Description" class="form-control" name="description">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -498,7 +492,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="attribute_name">Category Name</label>
-                            <input type="text" placeholder="Category Name" class="form-control" value="Category Name">
+                            <input type="text" id="attribute_name"  placeholder="Category Name" class="form-control" value="Category Name">
                         </div>
                         <div class="mb-3">
                             <label for="parent_category">Parent Category</label>

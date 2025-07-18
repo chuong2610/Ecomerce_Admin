@@ -1,11 +1,13 @@
 package org.group5.ecomerceadmin.controller;
 
 import jakarta.validation.Valid;
+import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.service.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +23,28 @@ public class CategoryController {
     }
 
     @GetMapping
-    public String getAll(Model model) {
-        List<Category> categories = categoryService.getAll();
-        model.addAttribute("categories", categories);
-        System.out.println("Categories size: " + categories.size());
-        return "category-list";
+    public String getAllforAdmin(@RequestParam(value = "kw", required = false) String keyword, Model model) {
+        List<Category> categories = categoryService.getAllforAdmin();
+        if (keyword != null && !keyword.isEmpty()) {
+            model.addAttribute("categories", categoryService.searchByNameForAdmin(keyword));
+            return "category-list";
+        } else {
+            model.addAttribute("categories", categories);
+            return "category-list";
+        }
     }
+
+//    @GetMapping("/customer")
+//    public String getAllforCustomer(@RequestParam("kw") String keyword, Model model) {
+//        List<Category> categories = categoryService.getAllforCustomer();
+//        if (keyword != null && !keyword.isEmpty()) {
+//            model.addAttribute("categories", categoryService.searchByNameForCustomer(keyword));
+//            return "category-list";
+//        } else {
+//            model.addAttribute("categories", categories);
+//            return "category-list";
+//        }
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Category> getById(@PathVariable String id) {
@@ -36,8 +54,12 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> create(@Valid @RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.create(category));
+    public String create(@ModelAttribute("category") CategoryRequestDTO category) {
+        System.out.println(category.getId());
+        System.out.println(category.getName());
+        System.out.println(category.getDescription());
+        categoryService.create(category);
+        return "redirect:/categories";
     }
 
     @PutMapping("/{id}")

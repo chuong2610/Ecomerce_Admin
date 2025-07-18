@@ -1,23 +1,18 @@
 package org.group5.ecomerceadmin.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "category")
+@Table(name = "Category")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category {
     @Id
     @Column(name = "id")
-    @NotBlank(message = "Id cannot be empty")
     private String id;
 
     @Column(name = "name", nullable = false, length = 100)
@@ -28,12 +23,4 @@ public class Category {
 
     @Column(name = "status")
     private boolean isActive = true;
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 }
