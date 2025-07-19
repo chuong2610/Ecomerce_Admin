@@ -36,18 +36,6 @@ public class CategoryController {
         }
     }
 
-//    @GetMapping("/customer")
-//    public String getAllforCustomer(@RequestParam("kw") String keyword, Model model) {
-//        List<Category> categories = categoryService.getAllforCustomer();
-//        if (keyword != null && !keyword.isEmpty()) {
-//            model.addAttribute("categories", categoryService.searchByNameForCustomer(keyword));
-//            return "category-list";
-//        } else {
-//            model.addAttribute("categories", categories);
-//            return "category-list";
-//        }
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Category> getById(@PathVariable String id) {
         return categoryService.getById(id)
