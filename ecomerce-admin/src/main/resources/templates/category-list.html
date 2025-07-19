@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:inline="html">
 
 <!-- Mirrored from saleszone.codeblowing.com/category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:04:45 GMT -->
 <head>
@@ -387,7 +387,7 @@
                         </div>
                         <a th:href="@{/categories}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory"><i class="fa-solid fa-plus me-2"></i>Add Category</a>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <div class="table-responsive">
                             <table class="table border">
                                 <thead>
@@ -400,21 +400,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="category : ${categories}">
-                                    <td th:text="${category.id}"></td>
-                                    <td th:text="${category.name}"></td>
-                                    <td th:text="${category.description}"></td>
+                                <tr th:each="c : ${categories}">
+                                    <td th:text="${c.id}"></td>
+                                    <td th:text="${c.name}"></td>
+                                    <td th:text="${c.description}"></td>
                                     <td>
-                                        <span class="badge text-bg-secondary" th:if="${category.isActive == true}">Active</span>
-                                        <span class="badge text-bg-secondary" th:if="${category.isActive == false}">Inactive</span>
+                                        <span class="badge text-bg-secondary" th:if="${c.isActive == true}">Active</span>
+                                        <span class="badge text-bg-secondary" th:if="${c.isActive == false}">Inactive</span>
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateCategory">
+                                            <a href="#"
+                                               class="btn btn-sm btn-soft btn-action btn-primary"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#updateCategory"
+                                               th:attr="data-id=${c.id}, data-name=${c.name}, data-description=${c.description}">
                                                 <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
-                                            <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
+                                            <a th:href="@{/categories/delete(id=${c.id})}"
+                                               class="btn btn-sm btn-soft btn-action btn-danger"
+                                               th:if="${c.isActive == true}">
                                                 <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                            <a th:href="@{/categories/restore(id=${c.id})}"
+                                               class="btn btn-sm btn-soft btn-action btn-danger"
+                                               th:if="${c.isActive == false}">
+                                                <i class="fa-solid fa-rotate-left"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -484,29 +495,20 @@
     <div class="modal fade" id="updateCategory" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/categories/update}" th:method="post">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">Update Category</h1>
+                        <h1 class="modal-title fs-5">Add New Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <input type="hidden" name="id" id="data-id">
                         <div class="mb-3">
-                            <label for="attribute_name">Category Name</label>
-                            <input type="text" id="attribute_name"  placeholder="Category Name" class="form-control" value="Category Name">
+                            <label>Category Name</label>
+                            <input type="text" id="data-name" placeholder="Category Name" class="form-control" name="name">
                         </div>
                         <div class="mb-3">
-                            <label for="parent_category">Parent Category</label>
-                            <select name="parent_category" id="parent_category" class="form-select">
-                                <option value="fashion">Fashion</option>
-                                <option value="electronics" selected>Electronics</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="status">Status</label>
-                            <select name="status" id="status" class="form-select">
-                                <option value="active" selected>Active</option>
-                                <option value="inactive">Inactive</option>
-                            </select>
+                            <label>Description</label>
+                            <input type="text" id="data-description" placeholder="Description" class="form-control" name="description">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -522,6 +524,22 @@
     <script src="js/plugins/jquery.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+        const updateModal = document.getElementById('updateCategory');
+        updateModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+
+            // Lấy dữ liệu từ nút đã click
+            const id = button.getAttribute('data-id');
+            const name = button.getAttribute('data-name');
+            const description = button.getAttribute('data-description');
+
+            // Gán vào form trong modal
+            updateModal.querySelector('input[name="id"]').value = id;
+            updateModal.querySelector('input[name="name"]').value = name;
+            updateModal.querySelector('input[name="description"]').value = description;
+        });
+    </script>
 </body>
 
 <!-- Mirrored from saleszone.codeblowing.com/category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:04:45 GMT -->
