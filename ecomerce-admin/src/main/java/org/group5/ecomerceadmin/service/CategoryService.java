@@ -24,16 +24,8 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public List<Category> getAllforCustomer() {
-        return categoryRepository.findByIsActiveTrue();
-    }
-
     public List<Category> searchByNameForAdmin(String name) {
         return categoryRepository.searchByNameContainingIgnoreCase(name);
-    }
-
-    public List<Category> searchByNameForCustomer(String name) {
-        return categoryRepository.findByIsActiveTrueAndNameContainingIgnoreCase(name);
     }
 
     public Optional<Category> getById(String id) {
