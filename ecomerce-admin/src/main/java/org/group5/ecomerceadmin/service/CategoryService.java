@@ -2,6 +2,7 @@ package org.group5.ecomerceadmin.service;
 
 import jakarta.transaction.Transactional;
 import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
+import org.group5.ecomerceadmin.dto.CategoryUpdateDTO;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -53,14 +54,12 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Category update(String id, Category category) {
+    public Category update(String id, CategoryUpdateDTO category) {
         Category existing = categoryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Category not found with id: " + id));
-
         if (!existing.isActive()) {
             throw new IllegalArgumentException("Cannot update an inactive category with id: " + id);
         }
-
         existing.setName(category.getName());
         existing.setDescription(category.getDescription());
         return categoryRepository.save(existing);
@@ -69,12 +68,20 @@ public class CategoryService {
     public void delete(String id) {
         Category existing = categoryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Category not found with id: " + id));
-
         if (!existing.isActive()) {
             throw new IllegalArgumentException("Category is already inactive.");
         }
-
         existing.setActive(false);
+        categoryRepository.save(existing);
+    }
+
+    public void restore(String id) {
+        Category existing = categoryRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Category not found with id: " + id));
+        if (existing.isActive()) {
+            throw new IllegalArgumentException("Category is already active.");
+        }
+        existing.setActive(true);
         categoryRepository.save(existing);
     }
 }

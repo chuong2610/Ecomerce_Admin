@@ -2,6 +2,7 @@ package org.group5.ecomerceadmin.controller;
 
 import jakarta.validation.Valid;
 import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
+import org.group5.ecomerceadmin.dto.CategoryUpdateDTO;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.service.CategoryService;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/categories")
@@ -62,14 +64,21 @@ public class CategoryController {
         return "redirect:/categories";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Category> update(@PathVariable String id, @Valid @RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.update(id, category));
+    @PostMapping("/update")
+    public String update(@RequestParam("id") String id, @ModelAttribute CategoryUpdateDTO category) {
+        categoryService.update(id, category);
+        return "redirect:/categories";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") String id) {
         categoryService.delete(id);
-        return ResponseEntity.noContent().build();
+        return "redirect:/categories";
+    }
+
+    @GetMapping("/restore")
+    public String restore(@RequestParam("id") String id) {
+        categoryService.restore(id);
+        return "redirect:/categories";
     }
 }
