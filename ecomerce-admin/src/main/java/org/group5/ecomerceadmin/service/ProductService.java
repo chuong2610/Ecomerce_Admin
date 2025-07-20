@@ -61,12 +61,19 @@ public class ProductService {
         return dto;
     }
     @Transactional
-    public ProductDTO saveProduct( ProductRequest request) {
+    public ProductDTO saveProduct( ProductRequest request, String existingFilePath) {
         Product product= new Product();
 
         if (request.getFile() != null && !request.getFile().isEmpty()) {
             fileService.saveFile(request.getFile());
             product.setImage(request.getFile().getOriginalFilename());
+        }else{
+            if (existingFilePath != null && !existingFilePath.isEmpty()) {
+                String fileName = existingFilePath.substring(existingFilePath.lastIndexOf("/") + 1);
+                product.setImage(fileName);
+            } else {
+                throw new RuntimeException("No file provided for product image");
+            }
         }
         product.setId(request.getId());
         product.setName(request.getName());

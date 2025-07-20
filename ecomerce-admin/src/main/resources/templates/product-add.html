@@ -421,11 +421,8 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="brand_id">Brand</label>
-                                                <select name="brand_id" id="brand_id" class="form-select">
-                                                    <option value="1">Sony</option>
-                                                    <option value="2">Cannon</option>
-                                                    <option value="3">Samsung</option>
-                                                    <option value="4">Nokia</option>
+                                                <select th:field="*{brandId}" name="brand_id" id="brand_id" class="form-select">
+                                                    <option th:each="b:${brands}" th:value="${b.id}" th:text="${b.name}" th:selected="${product.brandId != null && product.brandId==b.id}">Sony</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -503,6 +500,7 @@
                                 <div class="card-title fw-bold">Product Image</div>
                                 <div class="card-body">
                                     <div class="mb-3">
+                                        <input type="hidden" name="existingFilePath" th:value="${product.file}">
                                         <img th:if="${product.file != null}" th:src="@{${product.file}}" alt="Image" class="mb-2">
                                         <img th:unless="${product.file != null}" th:src="@{/img/products/1.jpg}" alt="Image" class="mb-2">
                                         <input th:field="*{file}" type="file" name="product_image" id="product_image" class="form-control" >
