@@ -2,6 +2,7 @@ package org.group5.ecomerceadmin.controller;
 
 import org.group5.ecomerceadmin.dto.ProductDTO;
 import org.group5.ecomerceadmin.payload.request.ProductRequest;
+import org.group5.ecomerceadmin.service.BrandService;
 import org.group5.ecomerceadmin.service.CategoryService;
 import org.group5.ecomerceadmin.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,10 @@ public class ProductController {
     private ProductService productService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private BrandService brandService;
     @GetMapping("/products")
     public String findAll(@RequestParam(value = "search", required = false, defaultValue = "") String search, Model model) {
-
             if(search.equals("")) {
                 model.addAttribute("products", productService.findAll());
             } else {
@@ -30,7 +32,6 @@ public class ProductController {
                 model.addAttribute("search", search);
             }
             return "product-list";
-
     }
     @GetMapping("products/{id}")
     public ResponseEntity<?> findById(@PathVariable String id) {
@@ -44,20 +45,21 @@ public class ProductController {
     public String addProduct(Model model) {
         model.addAttribute("product", new ProductRequest());
         model.addAttribute("categories", categoryService.getAll());
+        model.addAttribute("brands", brandService.getAll());
         model.addAttribute("formMode", "new");
         return "product-add";
     }
-
     @PostMapping("/products/save")
-    public String save(@ModelAttribute("product") ProductRequest product, Model model) {
+    public String save(@ModelAttribute("product") ProductRequest product,@RequestParam String existingFilePath, Model model) {
         model.addAttribute("product", product);
-        productService.saveProduct(product);
+        productService.saveProduct(product, existingFilePath);
         return "redirect:/products";
     }
     @GetMapping("/products/edit/{id}")
     public String update(@PathVariable String id, Model model) {
         model.addAttribute("product", productService.findProductCreateDTOById(id));
         model.addAttribute("categories", categoryService.getAll());
+        model.addAttribute("brands", brandService.getAll());
         model.addAttribute("formMode", "new");
         return "product-add";
     }
@@ -90,6 +92,4 @@ public class ProductController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-
 }
