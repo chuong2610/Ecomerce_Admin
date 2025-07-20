@@ -44,8 +44,8 @@ public class ProductController {
     @GetMapping("/products/add")
     public String addProduct(Model model) {
         model.addAttribute("product", new ProductRequest());
-        model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("brands", brandService.getAll());
+        model.addAttribute("categories", categoryService.getAllforAdmin());
         model.addAttribute("formMode", "new");
         return "product-add";
     }
@@ -58,8 +58,8 @@ public class ProductController {
     @GetMapping("/products/edit/{id}")
     public String update(@PathVariable String id, Model model) {
         model.addAttribute("product", productService.findProductCreateDTOById(id));
-        model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("brands", brandService.getAll());
+        model.addAttribute("categories", categoryService.getAllforAdmin());
         model.addAttribute("formMode", "new");
         return "product-add";
     }

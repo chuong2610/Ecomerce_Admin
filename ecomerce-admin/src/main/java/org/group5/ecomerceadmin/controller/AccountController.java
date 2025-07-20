@@ -1,66 +1,53 @@
 package org.group5.ecomerceadmin.controller;
 
-import org.group5.ecomerceadmin.config.security.JwtUtil;
+import jakarta.servlet.http.HttpSession;
 import org.group5.ecomerceadmin.entity.Account;
 import org.group5.ecomerceadmin.enums.Role;
-import org.group5.ecomerceadmin.payload.request.LoginRequest;
-import org.group5.ecomerceadmin.payload.request.RegisterRequest;
-import org.group5.ecomerceadmin.payload.response.AuthResponse;
-import org.group5.ecomerceadmin.repository.AccountRepository;
-import org.springframework.security.authentication.*;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.group5.ecomerceadmin.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
-@RequestMapping("/api/auth")
+@Controller
 public class AccountController {
+    @Autowired
+    private final AccountService accountService;
 
-    private final AccountRepository accountRepo;
-    private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authManager;
-    private final JwtUtil jwtUtil;
-
-    public AccountController(AccountRepository accountRepo,
-                             PasswordEncoder passwordEncoder,
-                             AuthenticationManager authManager,
-                             JwtUtil jwtUtil) {
-        this.accountRepo = accountRepo;
-        this.passwordEncoder = passwordEncoder;
-        this.authManager = authManager;
-        this.jwtUtil = jwtUtil;
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
     }
 
-    @PostMapping("/register")
-    public String register(@RequestBody RegisterRequest request) {
-        Account account = new Account();
-        account.setUsername(request.getUsername());
-        account.setPassword(passwordEncoder.encode(request.getPassword()));
-        account.setRole(Role.valueOf(request.getRole().toUpperCase()));
-        account.setFullName(request.getFullName());
-        accountRepo.save(account);
-        return "Register success";
+    @GetMapping({"/", "/login"})
+    public String showLogin(){
+        return "login";
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@RequestBody LoginRequest request) {
-        Authentication auth = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword())
-        );
+    public String doLogin(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpSession session){
+        Account account = accountService.authenticate(username, password);
 
-        Account account = accountRepo.findByUsername(request.getUsername());
-        if (account == null) {
-            throw new RuntimeException("Tài khoản không tồn tại");
+        if(account == null){
+            model.addAttribute("error", "Invalid username or password");
+            return "login";
         }
 
-        String token = jwtUtil.generateToken(account.getUsername(), account.getRole().name());
-
-        AuthResponse response = new AuthResponse();
-        response.setToken(token);
-        response.setUsername(account.getUsername());
-        response.setRole(account.getRole().name());
-        return response;
+        if (account.getRole() == Role.ADMIN) {
+            session.setAttribute("user", account);
+            return "/index.html";
+        } else {
+            model.addAttribute("error", "You are not authorized to access this function!");
+            return "login";
+        }
     }
+
+    @GetMapping("/logout")
+    public String doLogout(HttpSession session){
+        session.invalidate();
+        return "redirect:/login";
+    }
+
+
 }

@@ -1,15 +1,21 @@
 package org.group5.ecomerceadmin.controller;
 
 import jakarta.validation.Valid;
+import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
+import org.group5.ecomerceadmin.dto.CategoryUpdateDTO;
 import org.group5.ecomerceadmin.entity.Category;
 import org.group5.ecomerceadmin.service.CategoryService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/categories")
+@Controller
+@RequestMapping("/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -19,8 +25,15 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAll() {
-        return ResponseEntity.ok(categoryService.getAll());
+    public String getAllforAdmin(@RequestParam(value = "kw", required = false) String keyword, Model model) {
+        List<Category> categories = categoryService.getAllforAdmin();
+        if (keyword != null && !keyword.isEmpty()) {
+            model.addAttribute("categories", categoryService.searchByNameForAdmin(keyword));
+            return "category-list";
+        } else {
+            model.addAttribute("categories", categories);
+            return "category-list";
+        }
     }
 
     @GetMapping("/{id}")
@@ -31,18 +44,29 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> create(@Valid @RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.create(category));
+    public String create(@ModelAttribute("category") CategoryRequestDTO category) {
+        System.out.println(category.getId());
+        System.out.println(category.getName());
+        System.out.println(category.getDescription());
+        categoryService.create(category);
+        return "redirect:/categories";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Category> update(@PathVariable String id, @Valid @RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.update(id, category));
+    @PostMapping("/update")
+    public String update(@RequestParam("id") String id, @ModelAttribute CategoryUpdateDTO category) {
+        categoryService.update(id, category);
+        return "redirect:/categories";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") String id) {
         categoryService.delete(id);
-        return ResponseEntity.noContent().build();
+        return "redirect:/categories";
+    }
+
+    @GetMapping("/restore")
+    public String restore(@RequestParam("id") String id) {
+        categoryService.restore(id);
+        return "redirect:/categories";
     }
 }
