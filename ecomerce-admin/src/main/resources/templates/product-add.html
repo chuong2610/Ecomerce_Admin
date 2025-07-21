@@ -28,7 +28,7 @@
             <div class="logobar">
                 <div class="logo">
                     <a href="index.html">
-                        <span th:href="@{/index.html}">
+                        <span th:href="@{/index}">
                             <img th:src="@{/img/icon-light.png}" alt="Logo">
                             <span>SalesZone</span>
                         </span>
@@ -278,101 +278,102 @@
         <!--Sidebar Start-->
         <div class="sidebar-wrapper bg-primary">
             <div class="sidebar">
-                <div class="sidebar-links">
-                    <ul class="side-nav">
-                        <li class="nav-title">Backend</li>
-                        <li>
-                            <a href="index.html">
-                                <span><i class="fa-solid fa-gauge-high"></i>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-regular fa-paste"></i>Pages</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="page-list.html">Page List</a></li>
-                                <li><a href="page-add.html">Add Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-database"></i>Products</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="product-list.html">Product List</a></li>
-                                <li><a href="product-add.html">Add Product</a></li>
-                                <li><a href="product-attributes.html">Attributes</a></li>
-                                <li><a href="product-brands.html">Brands</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="category-list.html">
-                                <span><i class="fa-solid fa-explosion"></i>Categories</span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-users"></i>Customers</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="customer-list.html">Customer List</a></li>
-                                <li><a href="customer-add.html">Add Customer</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-bag-shopping"></i>Orders</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="order-list.html">Order List</a></li>
-                                <li><a href="order-add.html">Create Order</a></li>
-                                <li><a href="order-tracking.html">Order Tracking</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-location-dot"></i>Location</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="country-list.html">Country List</a></li>
-                                <li><a href="state-list.html">State List</a></li>
-                                <li><a href="city-list.html">City List</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-wallet"></i>Payments</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="payment-list.html">Payment List</a></li>
-                                <li><a href="payment-add.html">Add New</a></li>
-                                <li><a href="invoice-list.html">Invoice List</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-regular fa-user"></i>Users</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="user-list.html">User List</a></li>
-                                <li><a href="user-add.html">Add User</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="settings.html">
-                                <span><i class="fa-solid fa-gear"></i>Settings</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+<!--                <div class="sidebar-links">-->
+<!--                    <ul class="side-nav">-->
+<!--                        <li class="nav-title">Backend</li>-->
+<!--                        <li>-->
+<!--                            <a href="index.html">-->
+<!--                                <span><i class="fa-solid fa-gauge-high"></i>Dashboard</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-regular fa-paste"></i>Pages</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="page-list.html">Page List</a></li>-->
+<!--                                <li><a href="page-add.html">Add Page</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-solid fa-database"></i>Products</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="product-list.html">Product List</a></li>-->
+<!--                                <li><a href="product-add.html">Add Product</a></li>-->
+<!--                                <li><a href="product-attributes.html">Attributes</a></li>-->
+<!--                                <li><a href="product-brands.html">Brands</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="category-list.html">-->
+<!--                                <span><i class="fa-solid fa-explosion"></i>Categories</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-solid fa-users"></i>Customers</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="customer-list.html">Customer List</a></li>-->
+<!--                                <li><a href="customer-add.html">Add Customer</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-solid fa-bag-shopping"></i>Orders</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="order-list.html">Order List</a></li>-->
+<!--                                <li><a href="order-add.html">Create Order</a></li>-->
+<!--                                <li><a href="order-tracking.html">Order Tracking</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-solid fa-location-dot"></i>Location</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="country-list.html">Country List</a></li>-->
+<!--                                <li><a href="state-list.html">State List</a></li>-->
+<!--                                <li><a href="city-list.html">City List</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-solid fa-wallet"></i>Payments</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="payment-list.html">Payment List</a></li>-->
+<!--                                <li><a href="payment-add.html">Add New</a></li>-->
+<!--                                <li><a href="invoice-list.html">Invoice List</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-sub">-->
+<!--                            <a href="#">-->
+<!--                                <span><i class="fa-regular fa-user"></i>Users</span>-->
+<!--                                <i class="fa-solid fa-angle-down"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="user-list.html">User List</a></li>-->
+<!--                                <li><a href="user-add.html">Add User</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="settings.html">-->
+<!--                                <span><i class="fa-solid fa-gear"></i>Settings</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+                <div th:replace="~{components/sidebar :: sidebar}"></div>
             </div>
         </div>
         <!--Sidebar End-->
