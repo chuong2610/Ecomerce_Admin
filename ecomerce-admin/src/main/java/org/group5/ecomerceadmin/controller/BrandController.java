@@ -35,9 +35,16 @@ public class BrandController {
         return "product-brands";
     }
     @PostMapping("/brands/save")
-    public String save(@ModelAttribute("brand") Brand brand) {
-        brandService.create(brand);
-        return "redirect:/brands";
+    public String save(@ModelAttribute("brand") Brand brand, Model model) {
+        try {
+            brandService.create(brand);
+            return "redirect:/brands";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            List<BrandResponse> responses = brandService.getAll().stream().map(brandService::toResponse).toList();
+            model.addAttribute("brands", responses);
+            return "product-brands";
+        }
     }
     @PostMapping("/brands/update")
     public String update(@RequestParam("id") String id, @ModelAttribute BrandUpdateRequest request) {

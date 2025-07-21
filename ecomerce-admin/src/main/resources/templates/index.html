@@ -377,6 +377,78 @@
         <!-- Main Content Area Start -->
         <main>
             <div class="main-wrapper">
+                <!-- Error Display -->
+                <div th:if="${error}" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <i class="fa-solid fa-exclamation-triangle me-2"></i>
+                    <span th:text="${error}">Error message</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                
+                <!-- Statistics Row Start -->
+                <div class="row mb-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-card">
+                            <div class="widget-card-wrapper">
+                                <div class="title mb-15px">
+                                    <h4 class="font-15px fw-bold">Total Products</h4>
+                                    <p class="text-secondary font-14px">Active Products</p>
+                                </div>
+                                <div class="number-text fw-bold font-30px" th:text="${stats.totalProducts != null ? stats.totalProducts : 0}">0</div>
+                                <p class="text-secondary font-14px" th:text="'Active: ' + ${stats.activeProducts != null ? stats.activeProducts : 0}">Active: 0</p>
+                                <div class="icon">
+                                    <i class="fa-solid fa-box"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-card">
+                            <div class="widget-card-wrapper">
+                                <div class="title mb-15px">
+                                    <h4 class="font-15px fw-bold">Total Orders</h4>
+                                    <p class="text-secondary font-14px">All Time</p>
+                                </div>
+                                <div class="number-text fw-bold font-30px" th:text="${stats.totalOrders != null ? stats.totalOrders : 0}">0</div>
+                                <p class="text-secondary font-14px">Order management</p>
+                                <div class="icon">
+                                    <i class="fa-solid fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-card">
+                            <div class="widget-card-wrapper">
+                                <div class="title mb-15px">
+                                    <h4 class="font-15px fw-bold">Total Customers</h4>
+                                    <p class="text-secondary font-14px">Registered Users</p>
+                                </div>
+                                <div class="number-text fw-bold font-30px" th:text="${stats.totalCustomers != null ? stats.totalCustomers : 0}">0</div>
+                                <p class="text-secondary font-14px">Customer base</p>
+                                <div class="icon">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-card">
+                            <div class="widget-card-wrapper">
+                                <div class="title mb-15px">
+                                    <h4 class="font-15px fw-bold">Total Revenue</h4>
+                                    <p class="text-secondary font-14px">All Time</p>
+                                </div>
+                                <div class="number-text fw-bold font-30px" th:text="'$' + ${stats.totalEarnings != null ? #numbers.formatDecimal(stats.totalEarnings, 1, 2) : '0.00'}">$0.00</div>
+                                <p class="text-secondary font-14px">Gross revenue</p>
+                                <div class="icon">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Statistics Row End -->
+                
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <!-- Dashboard Widget Start -->
@@ -384,9 +456,9 @@
                             <div class="widget-card-wrapper">
                                 <div class="title mb-15px">
                                     <h4 class="font-15px fw-bold">Today's Earnings</h4>
-                                    <p class="text-secondary font-14px">January 27, 2022</p>
+                                    <p class="text-secondary font-14px" th:text="${#temporals.format(#temporals.createNow(), 'MMMM dd, yyyy')}">January 27, 2022</p>
                                 </div>
-                                <div class="number-text fw-bold font-30px">$25,450</div>
+                                <div class="number-text fw-bold font-30px" th:text="'$' + ${stats.todayEarnings != null ? #numbers.formatDecimal(stats.todayEarnings, 1, 2) : '0.00'}">$25,450</div>
                                 <p class="text-secondary font-14px">Including all costs</p>
                                 <div class="icon">
                                     <i class="fa-solid fa-money-bill-1-wave"></i>
@@ -401,9 +473,9 @@
                             <div class="widget-card-wrapper">
                                 <div class="title mb-15px">
                                     <h4 class="font-15px fw-bold">Monthly Earnings</h4>
-                                    <p class="text-secondary font-14px">April 27, 2022</p>
+                                    <p class="text-secondary font-14px" th:text="${#temporals.format(#temporals.createNow(), 'MMMM yyyy')}">April 27, 2022</p>
                                 </div>
-                                <div class="number-text fw-bold font-30px">$50,640</div>
+                                <div class="number-text fw-bold font-30px" th:text="'$' + ${stats.monthlyEarnings != null ? #numbers.formatDecimal(stats.monthlyEarnings, 1, 2) : '0.00'}">$50,640</div>
                                 <p class="text-secondary font-14px">Including all costs</p>
                             </div>                                
                             <div class="icon">
@@ -418,9 +490,9 @@
                             <div class="widget-card-wrapper">
                                 <div class="title mb-15px">
                                     <h4 class="font-15px fw-bold">Yearly Earnings</h4>
-                                    <p class="text-secondary font-14px">September 27, 2022</p>
+                                    <p class="text-secondary font-14px" th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">September 27, 2022</p>
                                 </div>
-                                <div class="number-text fw-bold font-30px">$95,000</div>
+                                <div class="number-text fw-bold font-30px" th:text="'$' + ${stats.yearlyEarnings != null ? #numbers.formatDecimal(stats.yearlyEarnings, 1, 2) : '0.00'}">$95,000</div>
                                 <p class="text-secondary font-14px">Including all costs</p>
                             </div>                                
                             <div class="icon">
@@ -446,60 +518,23 @@
                                             <th>Status</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr th:each="product : ${stats.recentProducts}" th:if="${stats.recentProducts != null}">
                                                 <td class="text-center">
-                                                    <img class="img-50px" src="img/products/1.jpg" alt="Image">
+                                                    <img class="img-50px" th:src="${product.imageUrl}" alt="Product Image" 
+                                                         onerror="this.src='img/products/1.jpg'">
                                                 </td>
-                                                <td class="font-14px fw-bold">Bentwood Chair</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Electronics</td>
-                                                <td class="font-14px text-center">PRO001</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
+                                                <td class="font-14px fw-bold" th:text="${product.name}">Product Name</td>
+                                                <td class="font-14px text-center" th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2)}">$50</td>
+                                                <td class="font-14px text-center" th:text="${product.category}">Category</td>
+                                                <td class="font-14px text-center" th:text="${product.id}">PRO001</td>
+                                                <td class="font-14px text-center">
+                                                    <span th:class="${product.status == 'Active' ? 'badge text-bg-success' : 'badge text-bg-secondary'}" 
+                                                          th:text="${product.status == 'Active' ? 'Active' : 'Inactive'}">Active</span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/2.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Borosil Paper Cup</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Furnitures</td>
-                                                <td class="font-14px text-center">PRO002</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/3.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">One Seat Sofa</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Gadgets</td>
-                                                <td class="font-14px text-center">PRO003</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">Draft</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/4.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Stillbird Helmet</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Electronics</td>
-                                                <td class="font-14px text-center">PRO004</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">Draft</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/5.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Best Colored T-Shirt</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Furnitures</td>
-                                                <td class="font-14px text-center">PRO005</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
-                                                </td>
+                                            <!-- Fallback when no data -->
+                                            <tr th:if="${stats.recentProducts == null or #lists.isEmpty(stats.recentProducts)}">
+                                                <td colspan="6" class="text-center text-muted">No recent products available</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -522,60 +557,22 @@
                                             <th>Status</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr th:each="product : ${stats.bestSellingProducts}" th:if="${stats.bestSellingProducts != null}">
                                                 <td class="text-center">
-                                                    <img class="img-50px" src="img/products/6.jpg" alt="Image">
+                                                    <img class="img-50px" th:src="${product.imageUrl}" alt="Product Image"
+                                                         onerror="this.src='img/products/6.jpg'">
                                                 </td>
-                                                <td class="font-14px fw-bold">Bentwood Chair</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
+                                                <td class="font-14px fw-bold" th:text="${product.name}">Product Name</td>
+                                                <td class="font-14px text-center" th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2)}">$50</td>
+                                                <td class="font-14px text-center" th:text="${product.totalSold} + ' Orders'">40 Orders</td>
+                                                <td class="font-14px text-center" th:text="'$' + ${#numbers.formatDecimal(product.profit, 1, 2)} + ' Profit'">$20 Profit</td>
+                                                <td class="font-14px text-center">
+                                                    <span class="badge text-bg-success">Best Seller</span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/7.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Borosil Paper Cup</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/8.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">One Seat Sofa</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">On Hold</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/9.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Stillbird Helmet</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-warning">Pending</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/10.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Best Colored T-Shirt</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
-                                                </td>
+                                            <!-- Fallback when no data -->
+                                            <tr th:if="${stats.bestSellingProducts == null or #lists.isEmpty(stats.bestSellingProducts)}">
+                                                <td colspan="6" class="text-center text-muted">No sales data available</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -585,7 +582,7 @@
                     </div>
                     <div class="col-xxl-6">
                         <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Monthly Avarage Sell</div>
+                            <div class="card-title text-uppercase fw-bold font-15px">Monthly Earnings Overview</div>
                             <div class="card-body">
                                 <canvas id="chart1"></canvas>
                             </div>
@@ -593,7 +590,7 @@
                     </div>                        
                     <div class="col-xxl-6">
                         <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Yearly Avarage Sell</div>
+                            <div class="card-title text-uppercase fw-bold font-15px">Category Revenue Analysis</div>
                             <div class="card-body">
                                 <canvas id="chart2"></canvas>
                             </div>
@@ -618,87 +615,77 @@
     <script src="js/plugins/bootstrap.min.js"></script>
     <script src="js/plugins/chart.min.js"></script>
     <script src="js/custom.js"></script>
-    <script>
+    <script th:inline="javascript">
+        // Monthly Earnings Chart - Safe data extraction
+        var monthlyEarningsChart = /*[[${stats.monthlyEarningsChart}]]*/ [];
+        var categoryStats = /*[[${stats.categoryStats}]]*/ [];
+        
+        // Extract data for monthly chart with fallbacks
+        var chartLabels = monthlyEarningsChart && monthlyEarningsChart.length > 0 ? 
+            monthlyEarningsChart.map(d => d.month) : 
+            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var earningsData = monthlyEarningsChart && monthlyEarningsChart.length > 0 ? 
+            monthlyEarningsChart.map(d => d.earnings || 0) : 
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var ordersData = monthlyEarningsChart && monthlyEarningsChart.length > 0 ? 
+            monthlyEarningsChart.map(d => d.orderCount || 0) : 
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
         new Chart(document.getElementById('chart1'), {
             type: 'bar',
             data: {
-                labels: [
-                    'Jan',
-                    'Feb',
-                    'March',
-                    'April',
-                    'May',
-                    'Jun',
-                    'July', 
-                    'Auguest',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                ],
+                labels: chartLabels,
                 datasets: [
                     {
-                        label: 'Sell Up',
-                        data: [220, 150, 320, 50, 250, 120, 170, 164, 145, 135, 110, 185],
-                        backgroundColor: [
-                            '#8FD14F',
-                        ],
+                        label: 'Monthly Earnings ($)',
+                        data: earningsData,
+                        backgroundColor: '#8FD14F',
                         hoverOffset: 4
                     },
                     {
-                        label: 'Sell Down',
-                        data: [200, 170, 300, 50, 150, 120, 165, 225, 245, 187, 194, 136],
-                        backgroundColor: [
-                            '#dc3545'
-                        ],
-                        hoverOffset: 4
+                        label: 'Order Count',
+                        data: ordersData,
+                        backgroundColor: '#dc3545',
+                        hoverOffset: 4,
+                        type: 'line'
                     }
                 ]
             },
             options: {
-            
                 responsive: true,
                 plugins: {
                     legend: {
                         position: 'bottom',
                     }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
-            },
+            }
         });
+
+        // Category Statistics Chart - Safe data extraction
+        var categoryLabels = categoryStats && categoryStats.length > 0 ? 
+            categoryStats.map(c => c.categoryName) : 
+            ['Electronics', 'Fashion', 'Home', 'Sports'];
+        var categoryRevenue = categoryStats && categoryStats.length > 0 ? 
+            categoryStats.map(c => c.totalRevenue || 0) : 
+            [0, 0, 0, 0];
 
         new Chart(document.getElementById('chart2'), {
             type: 'line',
             data: {
-                labels: [
-                    'Jan',
-                    'Feb',
-                    'March',
-                    'April',
-                    'May',
-                    'Jun',
-                    'July', 
-                    'Auguest',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                ],
+                labels: categoryLabels,
                 datasets: [
                     {
-                        label: 'Profit',
-                        data: [220, 150, 320, 50, 250, 120, 170, 164, 145, 135, 110, 185],
-                        backgroundColor: [
-                            '#8FD14F',
-                        ],
-                        hoverOffset: 4
-                    },
-                    {
-                        label: 'Lose',
-                        data: [200, 170, 300, 50, 150, 120, 165, 225, 245, 187, 194, 136],
-                        backgroundColor: [
-                            '#dc3545'
-                        ],
-                        hoverOffset: 4
+                        label: 'Category Revenue ($)',
+                        data: categoryRevenue,
+                        backgroundColor: '#8FD14F',
+                        borderColor: '#8FD14F',
+                        fill: false,
+                        tension: 0.4
                     }
                 ]
             },
@@ -711,22 +698,10 @@
                 },
                 scales: {
                     y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-
-                        // grid line settings
-                        grid: {
-                        drawOnChartArea: false, // only want the grid lines for one axis to show up
-                        },
-                    },
+                        beginAtZero: true
+                    }
                 }
-            },
+            }
         });
     </script>
 </body>

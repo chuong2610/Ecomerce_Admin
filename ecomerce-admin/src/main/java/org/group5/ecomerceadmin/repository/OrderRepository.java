@@ -12,4 +12,10 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByAccountIdAndIsActiveTrueAndStatusAndOrderDateBetween(Long accountId, OrderStatus status, LocalDateTime start, LocalDateTime end);
 
     List<Order> findByIsActiveTrue();
+    
+    // Dashboard queries
+    List<Order> findByIsActiveTrueAndOrderDateBetween(LocalDateTime start, LocalDateTime end);
+    List<Order> findByIsActiveTrueAndOrderDateAfter(LocalDateTime date);
+    long countByIsActiveTrue();
+    List<Order> findTop10ByIsActiveTrueOrderByOrderDateDesc();
 }

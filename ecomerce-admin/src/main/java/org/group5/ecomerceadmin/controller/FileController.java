@@ -19,9 +19,17 @@ public class FileController {
 
     @GetMapping("/{filename:.+}")
     public ResponseEntity<Resource> loadFile(@PathVariable String filename) {
-        Resource file = fileService.loadFile(filename);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
+        try {
+            Resource file = fileService.loadFile(filename);
+            if (file == null || !file.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                    .body(file);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
