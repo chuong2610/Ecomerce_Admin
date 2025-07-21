@@ -36,7 +36,7 @@ public class AccountController {
 
         if (account.getRole() == Role.ADMIN) {
             session.setAttribute("user", account);
-            return "/index.html";
+            return "redirect:/index";
         } else {
             model.addAttribute("error", "You are not authorized to access this function!");
             return "login";
