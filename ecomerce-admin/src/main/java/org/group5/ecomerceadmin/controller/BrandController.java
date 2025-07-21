@@ -3,6 +3,7 @@ package org.group5.ecomerceadmin.controller;
 import jakarta.validation.Valid;
 import org.group5.ecomerceadmin.entity.Brand;
 import org.group5.ecomerceadmin.payload.request.BrandRequest;
+import org.group5.ecomerceadmin.payload.request.BrandUpdateRequest;
 import org.group5.ecomerceadmin.payload.response.BrandResponse;
 import org.group5.ecomerceadmin.service.BrandService;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,11 @@ public class BrandController {
         brandService.create(brand);
         return "redirect:/brands";
     }
-
+    @PostMapping("/brands/update")
+    public String update(@RequestParam("id") String id, @ModelAttribute BrandUpdateRequest request) {
+        brandService.updateFromRequest(id, request);
+        return "redirect:/brands";
+    }
 
 //    @GetMapping("/{id}")
 //    public ResponseEntity<BrandResponse> getById(@PathVariable String id) {
