@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from saleszone.codeblowing.com/product-brands.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:04:45 GMT -->
 <head>
@@ -393,24 +393,15 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Image</th>
                                         <th>Brand Name</th>
-                                        <th>Brand Slug</th>
-                                        <th>Featured</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Brand Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img class="img-35px" src="img/products/1.jpg" alt="Image"></td>
-                                        <td class="text-start">Material</td>
-                                        <td>material</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
+                                    <tr th:each="b : ${brands}">
+                                        <td th:text="${b.id}"></td>
+                                        <td th:text="${b.name}"></td>
+                                        <td th:text="${b.description}"></td>
                                         <td>
                                             <div class="d-flex gap-1">
                                                 <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
@@ -421,178 +412,6 @@
                                                 </a>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img class="img-35px" src="img/products/2.jpg" alt="Image"></td>
-                                        <td class="text-start">Style</td>
-                                        <td>style</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img class="img-35px" src="img/products/3.jpg" alt="Image"></td>
-                                        <td class="text-start">Warranty</td>
-                                        <td>warrenty</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-30</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img class="img-35px" src="img/products/4.jpg" alt="Image"></td>
-                                        <td class="text-start">Occasion</td>
-                                        <td>occasion</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-03</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img class="img-35px" src="img/products/5.jpg" alt="Image"></td>
-                                        <td class="text-start">Capacity</td>
-                                        <td>capacity</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img class="img-35px" src="img/products/6.jpg" alt="Image"></td>
-                                        <td class="text-start">Packaging Type</td>
-                                        <td>packaging_type</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-04</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><img class="img-35px" src="img/products/7.jpg" alt="Image"></td>
-                                        <td class="text-start">Care Instructions</td>
-                                        <td>care_instructions</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-29</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><img class="img-35px" src="img/products/8.jpg" alt="Image"></td>
-                                        <td class="text-start">Connectivity</td>
-                                        <td>connectivity</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><img class="img-35px" src="img/products/9.jpg" alt="Image"></td>
-                                        <td class="text-start">Age Group</td>
-                                        <td>age_group</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td><img class="img-35px" src="img/products/10.jpg" alt="Image"></td>
-                                        <td class="text-start">Pattern</td>
-                                        <td>pattern</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-28</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
