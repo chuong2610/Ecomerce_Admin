@@ -28,11 +28,13 @@ public class BrandService {
     }
 
     public Brand create(Brand brand) {
-        if (brandRepository.existsById(brand.getId())) {
-            throw new IllegalArgumentException("Brand with id " + brand.getId() + " already exists.");
-        }
         return brandRepository.save(brand);
     }
+
+    public List<Brand> searchByName(String name) {
+        return brandRepository.findByNameContainingIgnoreCase(name);
+    }
+
 
     public Brand update(String id, Brand brand) {
         Brand existing = brandRepository.findById(id)

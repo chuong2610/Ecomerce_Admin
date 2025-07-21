@@ -400,6 +400,7 @@
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Category</th>
+                                        <th>Brand</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -412,6 +413,7 @@
                                     <td th:text="${product.price}">$25</td>
                                     <td th:text="${product.quantity}">50 Pc</td>
                                     <td th:text="${product.category}">Electronics</td>
+                                    <td th:text="${product.brand}">Electronics</td>
                                     <td>
                                         <span th:classappend="${product.quantity}>0 ? 'text-bg-primary' : 'text-bg-danger'"
                                               class="badge px-3 py-2 rounded"
