@@ -9,13 +9,13 @@
     <title>SalesZone - eCommerce HTML Admin Template</title>
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-
+    <link rel="shortcut icon" th:href="@{img/icon.png}" type="image/x-icon">
     <!--Stylesheets-->
-    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="css/plugins/summernote-lite.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/summernote-lite.min.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
+
 
 </head>
 <body>
@@ -40,7 +40,7 @@
                         <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-bell"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Notification</strong>
@@ -60,7 +60,7 @@
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -79,7 +79,7 @@
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -98,7 +98,7 @@
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -117,7 +117,7 @@
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -136,7 +136,7 @@
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
                         </ul>
@@ -150,7 +150,7 @@
                         <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-envelope"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Messages</strong>
@@ -164,13 +164,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -183,13 +183,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -202,13 +202,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -221,13 +221,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -240,13 +240,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
                         </ul>
@@ -259,7 +259,7 @@
                     <div class="dropdown">
                         <a href="#" id="current_user" data-bs-toggle="dropdown">
                             <img class="img-40px circle" src="img/user1.png" alt="Image">
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
                             <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="employees.html">Employees</a></li>
@@ -375,126 +375,46 @@
         <!--Sidebar End-->
 
         <!-- Main Content Area Start -->
+        <!-- Main Content Area Start -->
         <main>
             <div class="main-wrapper">
                 <div class="card p-20px mb-25px">
-                    <div class="card-title fw-bold font-18px">Add New User</div>
+                    <div class="card-title fw-bold font-18px">Add New Account</div>
                     <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="/accounts/save" method="POST">
 
                             <div class="row mb-3">
                                 <div class="col-lg-4">
-                                    <label for="name"><strong>User Name *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="name" placeholder="User Name">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="email"><strong>User Email *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Email Address">
+                                    <label for="fullName"><strong>Full Name</strong></label>
+                                    <input type="text" id="fullName" name="fullName" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-lg-4">
-                                    <label for="phone"><strong>User Phone *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone Number">
+                                    <label for="username"><strong>User Name</strong></label>
+                                    <input type="text" id="username" name="username" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-lg-4">
-                                    <label for="dob"><strong>Date of Birth *</strong></label>
+                                    <label for="password"><strong>Password</strong></label>
+                                    <input type="password" id="password" name="password" class="form-control" required />
                                 </div>
-                                <div class="col-lg-7">
-                                    <input type="date" class="form-control" name="dob" placeholder="Phone Number">
-                                </div>
+
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="address"><strong>Address *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="address" placeholder="Address">
-                                </div>
-                            </div>
-                            
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="city"><strong>City *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="city" placeholder="City">
-                                </div>
-                            </div>
+                            <!-- Hidden default role as CUSTOMER -->
+                            <input type="hidden" name="role" value="CUSTOMER">
 
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="state"><strong>State *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="state" placeholder="State">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="role"><strong>User Role *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <select class="form-select" name="role">
-                                        <option value="">Select Role</option>
-                                        <option value="Super Admin">Super Admin</option>
-                                        <option value="Admin">Admin</option>
-                                        <option value="Support Staff">Support Staff</option>
-                                        <option value="Editor">Editor</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="postal_code"><strong>Postal Code</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="zip" placeholder="Postal Code">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="postal_code"><strong>Gender *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <select class="form-select" name="gender">
-                                        <option value="">Choose Gender</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-4">
-                                    <label for="password"><strong>Password *</strong></label>
-                                </div>
-                                <div class="col-lg-7">
-                                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
-                                </div>
-                            </div>
+                            <!-- Hidden checkbox for active = true -->
+                            <input type="hidden" name="active" value="true">
 
                             <div class="row">
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-7">
-                                    <button class="btn btn-primary" type="submit">Create Customer</button>
+                                    <button class="btn btn-primary" type="submit">Create Account</button>
                                 </div>
                             </div>
 
@@ -502,18 +422,14 @@
                     </div>
                 </div>
             </div>
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="copyright text-center">
-                    <span><i class="fa-regular fa-copyright"></i> Copyright by Code Blowing</span>
-                </div>
-            </footer>
-            <!-- Footer End -->
+
         </main>
+        <!-- Main Content Area End -->
+
         <!-- Main Content Area End-->
     </div>
     <!-- Wrapper End -->
-    
+
     <!--Javascripts-->
     <script src="js/plugins/jquery.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>

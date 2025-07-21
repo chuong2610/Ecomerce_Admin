@@ -49,19 +49,22 @@ public class DataInitializer implements CommandLineRunner {
             admin.setUsername("admin");
             admin.setPassword("123");
             admin.setRole(Role.ADMIN);
-            admin.setFullName("Admin User"); // Thêm dòng này
+            admin.setFullName("Admin User");
+            admin.setActive(true);
             accountRepository.save(admin);
 
             Account customer = new Account();
             customer.setUsername("customer");
             customer.setPassword("123");
             customer.setRole(Role.CUSTOMER);
-            customer.setFullName("Customer User"); // Thêm dòng này
+            customer.setFullName("Customer User");
+            customer.setActive(true);
             accountRepository.save(customer);
 
             System.out.println("Accounts initialized.");
         }
     }
+
 
 
     private void initBrands() {
