@@ -1,0 +1,97 @@
+<div th:fragment="sidebar">
+  <div class="sidebar-links">
+    <ul class="side-nav">
+      <li>
+        <a th:href="@{/index}">
+          <span><i class="fa-solid fa-gauge-high"></i>Dashboard</span>
+        </a>
+      </li>
+<!--      <li class="has-sub">-->
+<!--        <a href="#">-->
+<!--          <span><i class="fa-regular fa-paste"></i>Pages</span>-->
+<!--          <i class="fa-solid fa-angle-down"></i>-->
+<!--        </a>-->
+<!--        <ul class="submenu">-->
+<!--          <li><a th:href="@{/page-list.html}">Page List</a></li>-->
+<!--          <li><a th:href="@{/page-add.html}">Add Page</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+      <li class="has-sub">
+        <a href="#">
+          <span><i class="fa-solid fa-database"></i>Products</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a th:href="@{/products}">Product List</a></li>
+          <li><a th:href="@{/products/add}">Add Product</a></li>
+<!--          <li><a th:href="@{/product-attributes.html}">Attributes</a></li>-->
+          <li><a th:href="@{/product-brands.html}">Brands</a></li>
+        </ul>
+      </li>
+      <li>
+        <a th:href="@{/categories}">
+          <span><i class="fa-solid fa-explosion"></i>Categories</span>
+        </a>
+      </li>
+      <li class="has-sub">
+        <a href="#">
+          <span><i class="fa-solid fa-users"></i>Customers</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a th:href="@{/customer-list.html}">Customer List</a></li>
+          <li><a th:href="@{/customer-add.html}">Add Customer</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#">
+          <span><i class="fa-solid fa-bag-shopping"></i>Orders</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a th:href="@{/order-list.html}">Order List</a></li>
+          <li><a th:href="@{/order-add.html}">Create Order</a></li>
+          <li><a th:href="@{/order-tracking.html}">Order Tracking</a></li>
+        </ul>
+      </li>
+<!--      <li class="has-sub">-->
+<!--        <a href="#">-->
+<!--          <span><i class="fa-solid fa-location-dot"></i>Location</span>-->
+<!--          <i class="fa-solid fa-angle-down"></i>-->
+<!--        </a>-->
+<!--        <ul class="submenu">-->
+<!--          <li><a th:href="@{/country-list.html}">Country List</a></li>-->
+<!--          <li><a th:href="@{/state-list.html}">State List</a></li>-->
+<!--          <li><a th:href="@{/city-list.html}">City List</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--      <li class="has-sub">-->
+<!--        <a href="#">-->
+<!--          <span><i class="fa-solid fa-wallet"></i>Payments</span>-->
+<!--          <i class="fa-solid fa-angle-down"></i>-->
+<!--        </a>-->
+<!--        <ul class="submenu">-->
+<!--          <li><a th:href="@{/payment-list.html}">Payment List</a></li>-->
+<!--          <li><a th:href="@{/payment-add.html}">Add New</a></li>-->
+<!--          <li><a th:href="@{/invoice-list.html}">Invoice List</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+      <li class="has-sub">
+        <a href="#">
+          <span><i class="fa-regular fa-user"></i>Users</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <ul class="submenu">
+          <li><a th:href="@{/user-list.html}">User List</a></li>
+          <li><a th:href="@{/user-add.html}">Add User</a></li>
+        </ul>
+      </li>
+      <li>
+        <a th:href="@{/settings.html}">
+          <span><i class="fa-solid fa-gear"></i>Settings</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
