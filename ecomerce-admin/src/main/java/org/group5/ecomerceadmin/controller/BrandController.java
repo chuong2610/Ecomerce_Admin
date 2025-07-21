@@ -21,11 +21,24 @@ public class BrandController {
     }
 
     @GetMapping("/brands")
-    public String getAll(Model model) {
-        List<BrandResponse> responses = brandService.getAll().stream().map(brandService::toResponse).toList();
-        model.addAttribute("brands", responses);
+    public String getAll(@RequestParam(value = "search", required = false, defaultValue = "") String search,Model model) {
+        if(search.equals("")) {
+            List<BrandResponse> responses = brandService.getAll().stream().map(brandService::toResponse).toList();
+            model.addAttribute("brands", responses);
+        }else {
+            List<BrandResponse> responses = brandService.searchByName(search).stream().map(brandService::toResponse).toList();
+            model.addAttribute("brands", responses);
+            model.addAttribute("search", search);
+        }
+
         return "product-brands";
     }
+    @PostMapping("/brands/save")
+    public String save(@ModelAttribute("brand") Brand brand) {
+        brandService.create(brand);
+        return "redirect:/brands";
+    }
+
 
 //    @GetMapping("/{id}")
 //    public ResponseEntity<BrandResponse> getById(@PathVariable String id) {

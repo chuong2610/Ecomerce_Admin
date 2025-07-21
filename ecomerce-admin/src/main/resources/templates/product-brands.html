@@ -380,8 +380,8 @@
                     <div class="card-title fw-bold font-18px">Brand List</div>
                     <div class="card-header mb-3 border-bottom-0">
                         <div class="search">
-                            <form action="#" class="position-relative">
-                                <input type="text" class="form-control ps-5" placeholder="Search Here">
+                            <form th:action="@{/brands}" class="position-relative" method="get">
+                                <input type="text" name="search" class="form-control ps-5" placeholder="Search Here">
                                 <button class="btn position-absolute top-50 translate-middle-y"><i class="fa-solid fa-search"></i></button>
                             </form>
                         </div>
@@ -395,6 +395,7 @@
                                         <th>ID</th>
                                         <th>Brand Name</th>
                                         <th>Brand Description</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -404,7 +405,8 @@
                                         <td th:text="${b.description}"></td>
                                         <td>
                                             <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
+                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand"
+                                                   th:attr="data-id=${b.id}, data-name=${b.name}, data-description=${b.description}">
                                                     <i class="fa-regular fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
@@ -445,30 +447,23 @@
     <div class="modal fade" id="addBrand" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/brands/save}" th:method="post">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">Add New Brand</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="brand_name">Brand Name</label>
-                            <input type="text" placeholder="Brand Name" class="form-control">
+                            <label for="brandId">Brand ID</label>
+                            <input  name="id" type="text" id="brandId" placeholder="Brand ID" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="brand_description">Description</label>
-                            <textarea name="brand_description" id="brand_description" placeholder="Brand Description" class="form-control"></textarea>
+                            <label for="brandName">Brand Name</label>
+                            <input name="name" type="text" id="brandName" placeholder="Brand Name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="is_featured">Is Featured</label>
-                            <select name="is_featured" id="is_featured" class="form-select">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="brand_image">Brand Image</label>
-                            <input type="file" class="form-control" placeholder="Upload Brand Image" name="brand_image" id="brand_image">
+                            <label for="description">Description</label>
+                            <textarea  name="description" id="description" placeholder="Brand Description" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -480,45 +475,54 @@
         </div> 
     </div>
 
-    <!-- Update Brand Modal -->
+<!--     Update Brand Modal -->
     <div class="modal fade" id="updateBrand" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/brands/save}" th:method="post">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">Add New Brand</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="brand_name">Brand Name</label>
-                            <input type="text" placeholder="Brand Name" class="form-control" value="Samsung">
+                            <label >Brand ID</label>
+                            <input  name="id" type="text" id="data-id" placeholder="Brand ID" class="form-control" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="brand_description">Description</label>
-                            <textarea name="brand_description" id="brand_description" placeholder="Brand Description" class="form-control">This is samsung brand description</textarea>
+                            <label >Brand Name</label>
+                            <input name="name" type="text" id="data-name" placeholder="Brand Name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="is_featured">Is Featured</label>
-                            <select name="is_featured" id="is_featured" class="form-select">
-                                <option value="Yes">Yes</option>
-                                <option value="No" selected>No</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="brand_image">Brand Image</label>
-                            <input type="file" class="form-control" placeholder="Upload Brand Image" name="brand_image" id="brand_image">
+                            <label >Description</label>
+                            <input  name="description" id="data-description" placeholder="Brand Description" class="form-control"></input>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update Brand</button>
+                        <button type="submit" class="btn btn-primary">Add Brand</button>
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
     </div>
 
+    <script>
+        const updateModal = document.getElementById('updateBrand');
+        updateModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+
+            // Lấy dữ liệu từ nút đã click
+            const id = button.getAttribute('data-id');
+            const name = button.getAttribute('data-name');
+            const description = button.getAttribute('data-description');
+
+            // Gán vào form trong modal
+            updateModal.querySelector('input[name="id"]').value = id;
+            updateModal.querySelector('input[name="name"]').value = name;
+            updateModal.querySelector('input[name="description"]').value = description;
+        });
+    </script>
     <!--Javascripts-->
     <script src="js/plugins/jquery.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
