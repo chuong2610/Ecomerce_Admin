@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from saleszone.codeblowing.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:00:17 GMT -->
+<!-- Mirrored from saleszone.codeblowing.com/order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:05:27 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +9,12 @@
     <title>SalesZone - eCommerce HTML Admin Template</title>
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    
     <!--Stylesheets-->
-    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
@@ -25,8 +25,8 @@
             <!--Logo Here-->
             <div class="logobar">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="img/icon-light.png" alt="Logo">
+                    <a href="/index.html">
+                        <img src="/img/icon-light.png" alt="Logo">
                         <span>SalesZone</span>
                     </a>
                 </div>
@@ -262,7 +262,7 @@
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
                             <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="employees.html">Employees</a></li>
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
                         </ul>
                       </div>
                 </div>
@@ -305,7 +305,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a th:href="@{/categories}">
+                            <a href="category-list.html">
                                 <span><i class="fa-solid fa-explosion"></i>Categories</span>
                             </a>
                         </li>
@@ -325,7 +325,7 @@
                                 <i class="fa-solid fa-angle-down"></i>
                             </a>
                             <ul class="submenu">
-                                <li><a th:href="@{/orders/order-list}">Order List</a></li>
+                               <li><a th:href="@{/orders/order-list}">Order List</a></li>
                                 <li><a th:href="@{/orders/order-add}">Create Order</a></li>
                                 <li><a href="order-tracking.html">Order Tracking</a></li>
                             </ul>
@@ -376,228 +376,245 @@
         <!-- Main Content Area Start -->
         <main>
             <div class="main-wrapper">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <!-- Dashboard Widget Start -->
-                        <div class="widget-card">
-                            <div class="widget-card-wrapper">
-                                <div class="title mb-15px">
-                                    <h4 class="font-15px fw-bold">Today's Earnings</h4>
-                                    <p class="text-secondary font-14px">January 27, 2022</p>
-                                </div>
-                                <div class="number-text fw-bold font-30px">$25,450</div>
-                                <p class="text-secondary font-14px">Including all costs</p>
-                                <div class="icon">
-                                    <i class="fa-solid fa-money-bill-1-wave"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Dashboard Widget End -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <!-- Dashboard Widget Start -->
-                        <div class="widget-card">
-                            <div class="widget-card-wrapper">
-                                <div class="title mb-15px">
-                                    <h4 class="font-15px fw-bold">Monthly Earnings</h4>
-                                    <p class="text-secondary font-14px">April 27, 2022</p>
-                                </div>
-                                <div class="number-text fw-bold font-30px">$50,640</div>
-                                <p class="text-secondary font-14px">Including all costs</p>
-                            </div>                                
-                            <div class="icon">
-                                <i class="fa-solid fa-money-bill-transfer"></i>
-                            </div>
-                        </div>
-                        <!-- Dashboard Widget End -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <!-- Dashboard Widget Start -->
-                        <div class="widget-card">
-                            <div class="widget-card-wrapper">
-                                <div class="title mb-15px">
-                                    <h4 class="font-15px fw-bold">Yearly Earnings</h4>
-                                    <p class="text-secondary font-14px">September 27, 2022</p>
-                                </div>
-                                <div class="number-text fw-bold font-30px">$95,000</div>
-                                <p class="text-secondary font-14px">Including all costs</p>
-                            </div>                                
-                            <div class="icon">
-                                <i class="fa-regular fa-money-bill-1"></i>
-                            </div>
-                        </div>
-                        <!-- Dashboard Widget End -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xxl-6">
-                        <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Recent Products</div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table border">
-                                        <thead>
-                                            <th>Image</th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Category</th>
-                                            <th>SKU</th>
-                                            <th>Status</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/1.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Bentwood Chair</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Electronics</td>
-                                                <td class="font-14px text-center">PRO001</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/2.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Borosil Paper Cup</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Furnitures</td>
-                                                <td class="font-14px text-center">PRO002</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/3.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">One Seat Sofa</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Gadgets</td>
-                                                <td class="font-14px text-center">PRO003</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">Draft</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/4.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Stillbird Helmet</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Electronics</td>
-                                                <td class="font-14px text-center">PRO004</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">Draft</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/5.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Best Colored T-Shirt</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">Furnitures</td>
-                                                <td class="font-14px text-center">PRO005</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Publish</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class="card p-20px mb-25px">
+                    <div class="card-title fw-bold font-18px">Order List</div>
+                    <div class="card-header mb-3 border-bottom-0 justify-content-end">
+                        <div class="search">
+                            <form action="#" class="position-relative">
+                                <input type="text" class="form-control ps-5" placeholder="Search Here">
+                                <button type="submit" class="btn position-absolute top-50 translate-middle-y" title="Search"><i class="fa-solid fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-xxl-6">
-                        <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Best Selling Products</div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table border">
-                                        <thead>
-                                            <th>Image</th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Orders</th>
-                                            <th>Profit</th>
-                                            <th>Status</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/6.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Bentwood Chair</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/7.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Borosil Paper Cup</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/8.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">One Seat Sofa</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-secondary">On Hold</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/9.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Stillbird Helmet</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-warning">Pending</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img class="img-50px" src="img/products/10.jpg" alt="Image">
-                                                </td>
-                                                <td class="font-14px fw-bold">Best Colored T-Shirt</td>
-                                                <td class="font-14px text-center">$50</td>
-                                                <td class="font-14px text-center">40 Orders</td>
-                                                <td class="font-14px text-center">$20 Profit</td>
-                                                <td class="font-14px text-center"><span class="badge text-bg-success">Delivered</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table border">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer Name</th>
+                                        <th>Email</th>
+                                        <th>Products</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="order : ${orders}">
+                                        <td th:text="${order.id}">ORD1001</td>
+                                        <td th:text="${order.account?.fullName ?: 'N/A'}">John Doe</td>
+                                        <td th:text="${order.account?.email ?: 'N/A'}">johndoe@example.com</td>
+                                        <td th:text="${order.items?.size() ?: 0} + ' items'">2 No</td>
+                                        <td th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd')}">2024-12-01</td>
+                                        <td th:text="${order.status}">Pending</td>
+                                        <td>
+                                            <form th:action="@{/orders/update/{orderId}(orderId=${order.id})}" method="post">
+                                                <label th:for="'status' + ${order.id}" class="visually-hidden">Order Status</label>
+                                                <select name="status" th:id="'status' + ${order.id}" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option th:each="status : ${T(org.group5.ecomerceadmin.enums.OrderStatus).values()}" 
+                                                            th:value="${status.name()}" 
+                                                            th:selected="${status.name() == order.status}"
+                                                            th:text="${status.name().charAt(0) + status.name().substring(1).toLowerCase()}">
+                                                        Status
+                                                    </option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <!-- Fallback message when no orders exist -->
+                                    <tr th:if="${orders == null or orders.isEmpty()}">
+                                        <td colspan="6" class="text-center text-muted">Chưa có đơn hàng nào</td>
+                                    </tr>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1002</td>
+                                        <td>Jane Smith</td>
+                                        <td>janesmith@example.com</td>
+                                        <td>10 No</td>
+                                        <td>2024-12-02</td>
+                                        <td>Completed</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status2" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed" selected>Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1003</td>
+                                        <td>Bob Johnson</td>
+                                        <td>bobjohnson@example.com</td>
+                                        <td>5 No</td>
+                                        <td>2024-12-03</td>
+                                        <td>Shipped</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status3" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped" selected>Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1004</td>
+                                        <td>Alice Williams</td>
+                                        <td>alicew@example.com</td>
+                                        <td>3 No</td>
+                                        <td>2024-12-04</td>
+                                        <td>Cancelled</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status4" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled" selected>Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1005</td>
+                                        <td>Chris Evans</td>
+                                        <td>chrise@example.com</td>
+                                        <td>8 No</td>
+                                        <td>2024-12-05</td>
+                                        <td>Processing</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status5" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing" selected>Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1006</td>
+                                        <td>Mary Brown</td>
+                                        <td>maryb@example.com</td>
+                                        <td>7 No</td>
+                                        <td>2024-12-06</td>
+                                        <td>Pending</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status6" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending" selected>Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1007</td>
+                                        <td>Steve Rogers</td>
+                                        <td>stever@example.com</td>
+                                        <td>2 No</td>
+                                        <td>2024-12-07</td>
+                                        <td>Completed</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status7" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed" selected>Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1008</td>
+                                        <td>Natasha Roman</td>
+                                        <td>natashar@example.com</td>
+                                        <td>1 No</td>
+                                        <td>2024-12-08</td>
+                                        <td>Shipped</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status8" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped" selected>Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1009</td>
+                                        <td>Bruce Wayne</td>
+                                        <td>brucew@example.com</td>
+                                        <td>6 No</td>
+                                        <td>2024-12-08</td>
+                                        <td>Cancelled</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status9" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled" selected>Cancelled</option>
+                                                    <option value="Processing">Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORD1010</td>
+                                        <td>Diana Prince</td>
+                                        <td>dianap@example.com</td>
+                                        <td>15 No</td>
+                                        <td>2024-12-08</td>
+                                        <td>Processing</td>
+                                        <td>
+                                            <form action="#">
+                                                <select name="status" id="status" class="form-select form-select-sm action-select" title="Order Status">
+                                                    <option value="Completed">Completed</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="Processing" selected>Processing</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                        <!-- Pagination Start -->
+                        <div class="pagination-wrapper">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Pagination End -->
                     </div>
-                    <div class="col-xxl-6">
-                        <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Monthly Avarage Sell</div>
-                            <div class="card-body">
-                                <canvas id="chart1"></canvas>
-                            </div>
-                        </div>
-                    </div>                        
-                    <div class="col-xxl-6">
-                        <div class="card p-20px mb-25px">
-                            <div class="card-title text-uppercase fw-bold font-15px">Yearly Avarage Sell</div>
-                            <div class="card-body">
-                                <canvas id="chart2"></canvas>
-                            </div>
-                        </div>
-                    </div>                        
                 </div>
             </div>
             <!-- Footer Start -->
@@ -613,122 +630,10 @@
     <!-- Wrapper End -->
     
     <!--Javascripts-->
-    <script src="js/plugins/jquery.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/plugins/chart.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script>
-        new Chart(document.getElementById('chart1'), {
-            type: 'bar',
-            data: {
-                labels: [
-                    'Jan',
-                    'Feb',
-                    'March',
-                    'April',
-                    'May',
-                    'Jun',
-                    'July', 
-                    'Auguest',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                ],
-                datasets: [
-                    {
-                        label: 'Sell Up',
-                        data: [220, 150, 320, 50, 250, 120, 170, 164, 145, 135, 110, 185],
-                        backgroundColor: [
-                            '#8FD14F',
-                        ],
-                        hoverOffset: 4
-                    },
-                    {
-                        label: 'Sell Down',
-                        data: [200, 170, 300, 50, 150, 120, 165, 225, 245, 187, 194, 136],
-                        backgroundColor: [
-                            '#dc3545'
-                        ],
-                        hoverOffset: 4
-                    }
-                ]
-            },
-            options: {
-            
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    }
-                }
-            },
-        });
-
-        new Chart(document.getElementById('chart2'), {
-            type: 'line',
-            data: {
-                labels: [
-                    'Jan',
-                    'Feb',
-                    'March',
-                    'April',
-                    'May',
-                    'Jun',
-                    'July', 
-                    'Auguest',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                ],
-                datasets: [
-                    {
-                        label: 'Profit',
-                        data: [220, 150, 320, 50, 250, 120, 170, 164, 145, 135, 110, 185],
-                        backgroundColor: [
-                            '#8FD14F',
-                        ],
-                        hoverOffset: 4
-                    },
-                    {
-                        label: 'Lose',
-                        data: [200, 170, 300, 50, 150, 120, 165, 225, 245, 187, 194, 136],
-                        backgroundColor: [
-                            '#dc3545'
-                        ],
-                        hoverOffset: 4
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                },
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-
-                        // grid line settings
-                        grid: {
-                        drawOnChartArea: false, // only want the grid lines for one axis to show up
-                        },
-                    },
-                }
-            },
-        });
-    </script>
+    <script src="/js/plugins/jquery.min.js"></script>
+    <script src="/js/plugins/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 
-<!-- Mirrored from saleszone.codeblowing.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:00:29 GMT -->
+<!-- Mirrored from saleszone.codeblowing.com/order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:05:27 GMT -->
 </html>

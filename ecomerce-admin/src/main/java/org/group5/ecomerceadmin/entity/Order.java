@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Data
+@ToString(exclude = {"productOrders"})
 public class Order {
     @Id
     @Column(name = "id")
@@ -48,4 +49,26 @@ public class Order {
     }
     public Order() {
     }
+
+    // Manual getters/setters for compatibility
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public double getTotalPrice() { return totalPrice; }
+    public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
+
+    public LocalDateTime getOrderDate() { return orderDate; }
+    public void setOrderDate(LocalDateTime orderDate) { this.orderDate = orderDate; }
+
+    public OrderStatus getStatus() { return status; }
+    public void setStatus(OrderStatus status) { this.status = status; }
+
+    public boolean isActive() { return isActive; }
+    public void setActive(boolean isActive) { this.isActive = isActive; }
+
+    public Account getAccount() { return account; }
+    public void setAccount(Account account) { this.account = account; }
+
+    public List<ProductOrder> getProductOrders() { return productOrders; }
+    public void setProductOrders(List<ProductOrder> productOrders) { this.productOrders = productOrders; }
 }

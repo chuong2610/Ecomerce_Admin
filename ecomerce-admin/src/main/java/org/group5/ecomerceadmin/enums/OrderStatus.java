@@ -1,11 +1,9 @@
 package org.group5.ecomerceadmin.enums;
 
 public enum OrderStatus {
-
-    COMPLETED,
     PENDING,
+    PROCESSING,
+    COMPLETED,
     SHIPPED,
     CANCELLED,
-    PROCESSING
-
 }
