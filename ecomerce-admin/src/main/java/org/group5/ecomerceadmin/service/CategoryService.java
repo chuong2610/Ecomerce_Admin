@@ -42,7 +42,6 @@ public class CategoryService {
         category.setName(categoryRequestDTO.getName());
         category.setDescription(categoryRequestDTO.getDescription());
         category.setActive(true);
-
         return categoryRepository.save(category);
     }
 
