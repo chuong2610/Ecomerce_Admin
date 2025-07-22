@@ -34,8 +34,6 @@ public class Account {
     @Nationalized
     @NotBlank(message = "Full name cannot be empty")
     private String fullName;
-
     @Column(name = "status")
     private boolean active = true;
-
 }

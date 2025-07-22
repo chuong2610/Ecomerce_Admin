@@ -385,28 +385,25 @@
     <div class="modal fade" id="updateBrand" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form th:action="@{/brands/save}" th:method="post">
+                <form th:action="@{/brands/update}" th:method="post">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">Add New Brand</h1>
+                        <h1 class="modal-title fs-5">Update Brand</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <input type="hidden" name="id" id="data-id">
                         <div class="mb-3">
-                            <label >Brand ID</label>
-                            <input  name="id" type="text" id="data-id" placeholder="Brand ID" class="form-control" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label >Brand Name</label>
+                            <label>Brand Name</label>
                             <input name="name" type="text" id="data-name" placeholder="Brand Name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label >Description</label>
-                            <input  name="description" id="data-description" placeholder="Brand Description" class="form-control"></input>
+                            <label>Description</label>
+                            <input name="description" id="data-description" placeholder="Brand Description" class="form-control"></input>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add Brand</button>
+                        <button type="submit" class="btn btn-primary">Update Brand</button>
                     </div>
                 </form>
             </div>

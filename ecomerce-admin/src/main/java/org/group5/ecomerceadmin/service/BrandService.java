@@ -2,6 +2,7 @@ package org.group5.ecomerceadmin.service;
 
 import jakarta.transaction.Transactional;
 import org.group5.ecomerceadmin.entity.Brand;
+import org.group5.ecomerceadmin.payload.request.BrandUpdateRequest;
 import org.group5.ecomerceadmin.repository.BrandRepository;
 import org.group5.ecomerceadmin.payload.request.BrandRequest;
 import org.group5.ecomerceadmin.payload.response.BrandResponse;
@@ -67,7 +68,7 @@ public class BrandService {
         return toResponse(saved);
     }
 
-    public BrandResponse updateFromRequest(String id, BrandRequest request) {
+    public BrandResponse updateFromRequest(String id, BrandUpdateRequest request) {
         Brand brand = new Brand();
         brand.setId(id);
         brand.setName(request.getName());
