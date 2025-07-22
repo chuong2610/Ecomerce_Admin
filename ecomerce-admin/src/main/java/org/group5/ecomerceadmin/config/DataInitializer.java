@@ -1,20 +1,17 @@
 package org.group5.ecomerceadmin.config;
 
-import org.group5.ecomerceadmin.entity.Account;
-import org.group5.ecomerceadmin.entity.Brand;
-import org.group5.ecomerceadmin.entity.Category;
-import org.group5.ecomerceadmin.entity.Product;
+import org.group5.ecomerceadmin.entity.*;
+import org.group5.ecomerceadmin.enums.OrderStatus;
 import org.group5.ecomerceadmin.enums.Role;
-import org.group5.ecomerceadmin.repository.AccountRepository;
-import org.group5.ecomerceadmin.repository.BrandRepository;
-import org.group5.ecomerceadmin.repository.CategoryRepository;
-import org.group5.ecomerceadmin.repository.ProductRepository;
+import org.group5.ecomerceadmin.repository.*;
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -23,15 +20,21 @@ public class DataInitializer implements CommandLineRunner {
     private final BrandRepository brandRepository;
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
+    private final ProductOrderRepository productOrderRepository;
 
     public DataInitializer(AccountRepository accountRepository,
                            BrandRepository brandRepository,
                            CategoryRepository categoryRepository,
-                           ProductRepository productRepository) {
+                           ProductRepository productRepository,
+                           OrderRepository orderRepository,
+                           ProductOrderRepository productOrderRepository) {
         this.accountRepository = accountRepository;
         this.brandRepository = brandRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
+        this.productOrderRepository = productOrderRepository;
     }
 
     @Override
@@ -41,6 +44,8 @@ public class DataInitializer implements CommandLineRunner {
         initBrands();
         initCategories();
         initProducts();
+        initCustomers();
+        initOrders();
     }
 
     private void initAccounts() {
@@ -143,6 +148,98 @@ public class DataInitializer implements CommandLineRunner {
 
             productRepository.saveAll(products);
             System.out.println("✔ Products initialized.");
+        }
+    }
+
+    private void initCustomers() {
+        // Tạo thêm customer accounts nếu chưa có đủ
+        long customerCount = accountRepository.countByRole(Role.CUSTOMER);
+        if (customerCount < 10) {
+            List<Account> customers = List.of(
+                    createCustomer("john_doe", "John Doe"),
+                    createCustomer("jane_smith", "Jane Smith"),
+                    createCustomer("mike_wilson", "Mike Wilson"),
+                    createCustomer("sarah_brown", "Sarah Brown"),
+                    createCustomer("david_jones", "David Jones"),
+                    createCustomer("emily_davis", "Emily Davis"),
+                    createCustomer("chris_miller", "Chris Miller"),
+                    createCustomer("lisa_taylor", "Lisa Taylor"),
+                    createCustomer("robert_white", "Robert White"),
+                    createCustomer("amanda_clark", "Amanda Clark")
+            );
+            accountRepository.saveAll(customers);
+            System.out.println("✔ Customer accounts initialized.");
+        }
+    }
+
+    private Account createCustomer(String username, String fullName) {
+        Account customer = new Account();
+        customer.setUsername(username);
+        customer.setPassword("123456");
+        customer.setRole(Role.CUSTOMER);
+        customer.setFullName(fullName);
+        customer.setActive(true);
+        return customer;
+    }
+
+    private void initOrders() {
+        if (orderRepository.count() == 0) {
+            List<Account> customers = accountRepository.findByRole(Role.CUSTOMER);
+            List<Product> products = productRepository.findAll();
+            
+            if (customers.isEmpty() || products.isEmpty()) {
+                System.out.println("⚠ Cannot create orders: No customers or products found.");
+                return;
+            }
+            
+            Random random = new Random();
+
+            // Tạo 20 orders mẫu
+            for (int i = 1; i <= 20; i++) {
+                Account randomCustomer = customers.get(random.nextInt(customers.size()));
+                
+                // Tạo ngày đặt hàng ngẫu nhiên trong 30 ngày qua
+                LocalDateTime orderDate = LocalDateTime.now().minusDays(random.nextInt(30));
+                
+                // Chọn trạng thái ngẫu nhiên
+                OrderStatus[] statuses = OrderStatus.values();
+                OrderStatus randomStatus = statuses[random.nextInt(statuses.length)];
+                
+                // Chọn 1-3 sản phẩm ngẫu nhiên cho order này
+                int numProducts = random.nextInt(3) + 1;
+                double totalPrice = 0;
+                
+                Order order = new Order();
+                order.setOrderDate(orderDate);
+                order.setStatus(randomStatus);
+                order.setAccount(randomCustomer);
+                order.setActive(true);
+                
+                // Tính tổng tiền trước
+                for (int j = 0; j < numProducts; j++) {
+                    Product randomProduct = products.get(random.nextInt(products.size()));
+                    int quantity = random.nextInt(3) + 1; // 1-3 items
+                    totalPrice += randomProduct.getPrice() * quantity;
+                }
+                
+                order.setTotalPrice(totalPrice);
+                Order savedOrder = orderRepository.save(order);
+                
+                // Tạo ProductOrder items
+                for (int j = 0; j < numProducts; j++) {
+                    Product randomProduct = products.get(random.nextInt(products.size()));
+                    int quantity = random.nextInt(3) + 1;
+                    
+                    ProductOrder productOrder = new ProductOrder();
+                    productOrder.setOrder(savedOrder);
+                    productOrder.setProduct(randomProduct);
+                    productOrder.setQuantity(quantity);
+                    productOrder.setPrice(randomProduct.getPrice());
+                    
+                    productOrderRepository.save(productOrder);
+                }
+            }
+            System.out.println("✔ Sample orders initialized.");
         }
     }
 

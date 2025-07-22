@@ -29,6 +29,9 @@ public class BrandService {
     }
 
     public Brand create(Brand brand) {
+        if (brand.getId() != null && brandRepository.existsById(brand.getId())) {
+            throw new IllegalArgumentException("Brand with this ID already exists: " + brand.getId());
+        }
         return brandRepository.save(brand);
     }
 

@@ -16,6 +16,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     List<Account> findByActive(boolean isActive);
     List<Account> findByUsernameContainingIgnoreCase(String username);
-
-
+    
+    // Dashboard queries
+    long countByRole(Role role);
 }

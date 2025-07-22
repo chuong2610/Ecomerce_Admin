@@ -10,5 +10,9 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, String> {
     List<Product> findByBrand_IdAndIsActiveTrue(String brandId);
     List<Product> findByCategory_IdAndIsActiveTrue(String categoryId);
-
+    
+    // Dashboard queries
+    long countByIsActiveTrue();
+    long countByCategory_IdAndIsActiveTrue(String categoryId);
+    List<Product> findTop5ByIsActiveTrueOrderByIdDesc();
 }
