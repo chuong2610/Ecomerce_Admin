@@ -33,7 +33,7 @@ public class SampleOrdersInitializer implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        if (orderRepository.count() == 0) {
+        if (orderRepository.count() < 200) { // Increase threshold for more historical data
             createSampleOrders();
         }
     }
@@ -48,18 +48,51 @@ public class SampleOrdersInitializer implements CommandLineRunner {
         }
 
         Random random = new Random();
-        LocalDateTime now = LocalDateTime.now();
         
-        // Create 20 sample orders spread across last 6 months
-        for (int i = 0; i < 20; i++) {
+        // Create orders for different years with realistic distribution
+        createOrdersForYear(2023, 80, customers, products, random); // 80 orders for 2023
+        createOrdersForYear(2024, 100, customers, products, random); // 100 orders for 2024
+        createOrdersForYear(2025, 60, customers, products, random); // 60 orders for 2025 (current year)
+        
+        System.out.println("✔ Enhanced sample orders created successfully! Total orders: " + orderRepository.count());
+    }
+    
+    private void createOrdersForYear(int year, int orderCount, List<Account> customers, List<Product> products, Random random) {
+        for (int i = 0; i < orderCount; i++) {
             Account customer = customers.get(random.nextInt(customers.size()));
             
-            // Random date within last 6 months
-            LocalDateTime orderDate = now.minusDays(random.nextInt(180));
+            // Random date within the specified year
+            LocalDateTime startOfYear = LocalDateTime.of(year, 1, 1, 0, 0);
+            LocalDateTime endOfYear = LocalDateTime.of(year, 12, 31, 23, 59);
+            long daysBetween = java.time.Duration.between(startOfYear, endOfYear).toDays();
+            LocalDateTime orderDate = startOfYear.plusDays(random.nextInt((int) daysBetween + 1))
+                                                 .plusHours(random.nextInt(24))
+                                                 .plusMinutes(random.nextInt(60));
             
-            // Random order status
-            OrderStatus[] statuses = OrderStatus.values();
-            OrderStatus status = statuses[random.nextInt(statuses.length)];
+            // Random order status with realistic distribution
+            OrderStatus status;
+            double statusRandom = random.nextDouble();
+            if (year < 2025) {
+                // Historical orders - mostly completed
+                if (statusRandom < 0.85) {
+                    status = OrderStatus.COMPLETED;
+                } else if (statusRandom < 0.95) {
+                    status = OrderStatus.CANCELLED;
+                } else {
+                    status = OrderStatus.PROCESSING;
+                }
+            } else {
+                // Current year orders - mix of statuses
+                if (statusRandom < 0.7) {
+                    status = OrderStatus.COMPLETED;
+                } else if (statusRandom < 0.85) {
+                    status = OrderStatus.PENDING;
+                } else if (statusRandom < 0.95) {
+                    status = OrderStatus.PROCESSING;
+                } else {
+                    status = OrderStatus.CANCELLED;
+                }
+            }
             
             // Create order
             org.group5.ecomerceadmin.entity.Order order = new org.group5.ecomerceadmin.entity.Order();
@@ -68,13 +101,28 @@ public class SampleOrdersInitializer implements CommandLineRunner {
             order.setStatus(status);
             order.setActive(true);
             
-            // Add 1-4 random products to order
-            int productCount = 1 + random.nextInt(4);
+            // Add 1-5 random products to order with realistic distribution
+            int productCount;
+            double productCountRandom = random.nextDouble();
+            if (productCountRandom < 0.4) {
+                productCount = 1; // 40% single item
+            } else if (productCountRandom < 0.7) {
+                productCount = 2; // 30% two items
+            } else if (productCountRandom < 0.9) {
+                productCount = 3; // 20% three items
+            } else {
+                productCount = 4 + random.nextInt(2); // 10% four or five items
+            }
+            
             List<ProductOrder> productOrders = new ArrayList<>();
             double totalPrice = 0;
             
-            for (int j = 0; j < productCount; j++) {
-                Product product = products.get(random.nextInt(products.size()));
+            // Use Set to avoid duplicate products in same order
+            List<Product> availableProducts = new ArrayList<>(products);
+            for (int j = 0; j < productCount && !availableProducts.isEmpty(); j++) {
+                int productIndex = random.nextInt(availableProducts.size());
+                Product product = availableProducts.remove(productIndex);
+                
                 int quantity = 1 + random.nextInt(3); // 1-3 items
                 double itemPrice = product.getPrice() * quantity;
                 
@@ -94,7 +142,5 @@ public class SampleOrdersInitializer implements CommandLineRunner {
             // Save order (cascade will save ProductOrders)
             orderRepository.save(order);
         }
-        
-        System.out.println("✔ Sample orders created successfully!");
     }
 }
