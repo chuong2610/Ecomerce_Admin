@@ -27,11 +27,9 @@
             <!--Logo Here-->
             <div class="logobar">
                 <div class="logo">
-                    <a href="index.html">
-                        <span th:href="@{/index}">
-                            <img th:src="@{/img/icon-light.png}" alt="Logo">
-                            <span>SalesZone</span>
-                        </span>
+                    <a th:href="@{/index}">
+                        <img th:src="@{/img/icon-light.png}" alt="Logo">
+                        <span>SalesZone</span>
                     </a>
                 </div>
                 <span class="toggle-bar"><i class="fa-solid fa-bars"></i></span>
@@ -264,9 +262,9 @@
                             <img class="img-40px circle" th:src="@{/img/user1.png}" alt="Image">
                         </a>
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
-                            <li><a class="dropdown-item" th:href="@{/update-profile.html}">Profile</a></li>
-                            <li><a class="dropdown-item" th:href="@{/employees.html}">Employees</a></li>
-                            <li><a class="dropdown-item" th:href="@{/login.html}">Logout</a></li>
+                            <!--                            <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>-->
+                            <!--                            <li><a class="dropdown-item" href="employees.html">Employees</a></li>-->
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -383,11 +381,11 @@
             <div class="main-wrapper">
                 <div class="page-title p-15px bg-white mb-3">
                     <div class="fw-bold font-18px">Add New Product</div>
-                    <ul class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="product-list.html">Product List</a></li>
-                        <li class="breadcrumb-item active">Add Product</li>
-                    </ul>
+<!--                    <ul class="breadcrumb mb-0">-->
+<!--                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>-->
+<!--                        <li class="breadcrumb-item"><a href="product-list.html">Product List</a></li>-->
+<!--                        <li class="breadcrumb-item active">Add Product</li>-->
+<!--                    </ul>-->
                 </div>
                 <form th:action="@{/products/save}" th:object="${product}" method="post" enctype="multipart/form-data">
                     <div class="row">

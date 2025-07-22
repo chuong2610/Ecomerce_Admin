@@ -26,8 +26,8 @@
             <div class="logobar">
                 <div class="logo">
                     <a th:href="@{/index}">
-                            <img th:src="@{/img/icon-light.png}" alt="Logo">
-                            <span>SalesZone</span>
+                        <img src="img/icon-light.png" alt="Logo">
+                        <span>SalesZone</span>
                     </a>
                 </div>
                 <span class="toggle-bar"><i class="fa-solid fa-bars"></i></span>
@@ -39,7 +39,7 @@
                         <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-bell"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Notification</strong>
@@ -59,7 +59,7 @@
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -78,7 +78,7 @@
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -97,7 +97,7 @@
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -116,7 +116,7 @@
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
 
@@ -135,7 +135,7 @@
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Notification Item End-->
                         </ul>
@@ -149,7 +149,7 @@
                         <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
                             <i class="fa-regular fa-envelope"></i>
                             <span>5</span>
-                        </a>                      
+                        </a>
                         <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
                             <div class="dropdown-header bg-warning">
                                 <strong class="text-white">5 New Messages</strong>
@@ -163,13 +163,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Quis quam saepe blandi tiis simil...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -182,13 +182,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Elige ndi amet non tenetur porro...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -201,13 +201,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Assu menda ducimus nemo laudan...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -220,13 +220,13 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Asper iores pariatur disti nctio...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
 
@@ -239,17 +239,17 @@
                                         </div>
                                         <div class="content">
                                             <div class="title">
-                                                <strong>New Message</strong> 
+                                                <strong>New Message</strong>
                                                 <span>2 days ago</span>
                                             </div>
                                             <p>Dolor sit afrg amet conse ctetur...</p>
                                         </div>
                                     </div>
-                                </a>                        
+                                </a>
                             </li>
                             <!--Message Item End-->
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <!--Message Toggle End-->
 
@@ -257,14 +257,14 @@
                 <div class="current-user toggle-item">
                     <div class="dropdown">
                         <a href="#" id="current_user" data-bs-toggle="dropdown">
-                            <img class="img-40px circle" th:src="@{/img/user1.png}" alt="Image">
-                        </a>                      
+                            <img class="img-40px circle" src="img/user1.png" alt="Image">
+                        </a>
                         <ul class="dropdown-menu shadow" aria-labelledby="current_user">
-                            <li><a class="dropdown-item" th:href="@{/update-profile.html}">Profile</a></li>
-                            <li><a class="dropdown-item" th:href="@{/employees.html}">Employees</a></li>
-                            <li><a class="dropdown-item" th:href="@{/login.html}">Logout</a></li>
+                            <!--                            <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>-->
+                            <!--                            <li><a class="dropdown-item" href="employees.html">Employees</a></li>-->
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <!--User Info Toggle End-->
             </div>
