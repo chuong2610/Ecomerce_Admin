@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from saleszone.codeblowing.com/user-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:06:09 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesZone - eCommerce HTML Admin Template</title>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" th:href="@{img/icon.png}" type="image/x-icon">
+    <!--Stylesheets-->
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/fontawesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins/summernote-lite.min.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+
+</head>
+<body>
+<!-- Wrapper Start -->
+<div class="wrapper">
+    <!-- Header Start -->
+    <header class="top-header bg-primary">
+        <!--Logo Here-->
+        <div class="logobar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/icon-light.png" alt="Logo">
+                    <span>SalesZone</span>
+                </a>
+            </div>
+            <span class="toggle-bar"><i class="fa-solid fa-bars"></i></span>
+        </div>
+        <div class="head-content">
+            <!--Notification Toggle Start-->
+            <div class="nofications toggle-item d-md-block d-none">
+                <div class="dropdown">
+                    <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>5</span>
+                    </a>
+                    <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
+                        <div class="dropdown-header bg-warning">
+                            <strong class="text-white">5 New Notification</strong>
+                        </div>
+                        <!--Notification Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Notification</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Quis quam saepe blandi tiis simil...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Notification Item End-->
+
+                        <!--Notification Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Notification</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Elige ndi amet non tenetur porro...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Notification Item End-->
+
+                        <!--Notification Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Notification</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Assu menda ducimus nemo laudan...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Notification Item End-->
+
+                        <!--Notification Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Notification</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Asper iores pariatur disti nctio...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Notification Item End-->
+
+                        <!--Notification Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Notification</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Dolor sit afrg amet conse ctetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Notification Item End-->
+                    </ul>
+                </div>
+            </div>
+            <!--Notification Toggle End-->
+
+            <!--Message Toggle Start-->
+            <div class="messages toggle-item d-md-block d-none">
+                <div class="dropdown">
+                    <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>5</span>
+                    </a>
+                    <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
+                        <div class="dropdown-header bg-warning">
+                            <strong class="text-white">5 New Messages</strong>
+                        </div>
+                        <!--Message Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="message-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Message</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Quis quam saepe blandi tiis simil...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Message Item End-->
+
+                        <!--Message Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="message-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Message</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Elige ndi amet non tenetur porro...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Message Item End-->
+
+                        <!--Message Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="message-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Message</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Assu menda ducimus nemo laudan...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Message Item End-->
+
+                        <!--Message Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="message-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Message</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Asper iores pariatur disti nctio...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Message Item End-->
+
+                        <!--Message Item Start-->
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="message-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope-open"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">
+                                            <strong>New Message</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                        <p>Dolor sit afrg amet conse ctetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--Message Item End-->
+                    </ul>
+                </div>
+            </div>
+            <!--Message Toggle End-->
+
+            <!--User Info Toggle Start-->
+            <div class="current-user toggle-item">
+                <div class="dropdown">
+                    <a href="#" id="current_user" data-bs-toggle="dropdown">
+                        <img class="img-40px circle" src="img/user1.png" alt="Image">
+                    </a>
+                    <ul class="dropdown-menu shadow" aria-labelledby="current_user">
+                        <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="employees.html">Employees</a></li>
+                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--User Info Toggle End-->
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!--Sidebar Start-->
+    <div class="sidebar-wrapper bg-primary">
+        <div class="sidebar">
+            <div class="sidebar-links">
+                <ul class="side-nav">
+                    <li class="nav-title">Backend</li>
+                    <li>
+                        <a href="index.html">
+                            <span><i class="fa-solid fa-gauge-high"></i>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-regular fa-paste"></i>Pages</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="page-list.html">Page List</a></li>
+                            <li><a href="page-add.html">Add Page</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-solid fa-database"></i>Products</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="product-list.html">Product List</a></li>
+                            <li><a href="product-add.html">Add Product</a></li>
+                            <li><a href="product-attributes.html">Attributes</a></li>
+                            <li><a href="product-brands.html">Brands</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="category-list.html">
+                            <span><i class="fa-solid fa-explosion"></i>Categories</span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-solid fa-users"></i>Customers</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="customer-list.html">Customer List</a></li>
+                            <li><a href="customer-add.html">Add Customer</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-solid fa-bag-shopping"></i>Orders</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="order-list.html">Order List</a></li>
+                            <li><a href="order-add.html">Create Order</a></li>
+                            <li><a href="order-tracking.html">Order Tracking</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-solid fa-location-dot"></i>Location</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="country-list.html">Country List</a></li>
+                            <li><a href="state-list.html">State List</a></li>
+                            <li><a href="city-list.html">City List</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-solid fa-wallet"></i>Payments</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="payment-list.html">Payment List</a></li>
+                            <li><a href="payment-add.html">Add New</a></li>
+                            <li><a href="invoice-list.html">Invoice List</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <span><i class="fa-regular fa-user"></i>Users</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="user-list.html">User List</a></li>
+                            <li><a href="user-add.html">Add User</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <span><i class="fa-solid fa-gear"></i>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Sidebar End-->
+
+    <!-- Main Content Area Start -->
+    <!-- Main Content Area Start -->
+    <main>
+        <div class="main-wrapper">
+            <div class="card p-20px mb-25px">
+                <div class="card-title fw-bold font-18px">
+                    <!-- Nếu tài khoản có ID thì là Edit, không thì là Add -->
+                    <span th:text="${account.id} != null ? 'Edit Account' : 'Add New Account'"></span>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/accounts/save}" method="post" th:object="${account}">
+
+                        <!-- Hidden field để giữ ID khi chỉnh sửa -->
+                        <input type="hidden" th:field="*{id}" />
+
+                        <div class="row mb-3">
+                            <div class="col-lg-4">
+                                <label for="fullName"><strong>Full Name *</strong></label>
+                                <input type="text" id="fullName" th:field="*{fullName}" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-4">
+                                <label for="username"><strong>Username *</strong></label>
+                                <input type="text" id="username" th:field="*{username}" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-4">
+                                <label for="password"><strong>Password *</strong></label>
+                                <input type="password" id="password" th:field="*{password}" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <!-- Role ẩn nếu là CUSTOMER mặc định -->
+                        <input type="hidden" th:field="*{role}" th:value="${account.role} ?: 'CUSTOMER'" />
+
+                        <!-- Active mặc định là true -->
+                        <input type="hidden" th:field="*{active}" th:value="${account.active} ?: true" />
+
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-7">
+                                <button class="btn btn-primary" type="submit"
+                                        th:text="${account.id} != null ? 'Update Account' : 'Create Account'">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Main Content Area End -->
+
+    <!-- Main Content Area End-->
+</div>
+<!-- Wrapper End -->
+
+<!--Javascripts-->
+<script src="js/plugins/jquery.min.js"></script>
+<script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/summernote-lite.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    $('#page_content').summernote({
+        placeholder: 'Enter your content',
+        tabsize: 2,
+        height: 300
+    });
+</script>
+</body>
+
+<!-- Mirrored from saleszone.codeblowing.com/user-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:06:09 GMT -->
+</html>

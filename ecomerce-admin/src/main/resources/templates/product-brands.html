@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from saleszone.codeblowing.com/product-brands.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:04:45 GMT -->
 <head>
@@ -380,8 +380,8 @@
                     <div class="card-title fw-bold font-18px">Brand List</div>
                     <div class="card-header mb-3 border-bottom-0">
                         <div class="search">
-                            <form action="#" class="position-relative">
-                                <input type="text" class="form-control ps-5" placeholder="Search Here">
+                            <form th:action="@{/brands}" class="position-relative" method="get">
+                                <input type="text" name="search" class="form-control ps-5" placeholder="Search Here">
                                 <button class="btn position-absolute top-50 translate-middle-y"><i class="fa-solid fa-search"></i></button>
                             </form>
                         </div>
@@ -393,27 +393,20 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Image</th>
                                         <th>Brand Name</th>
-                                        <th>Brand Slug</th>
-                                        <th>Featured</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Brand Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img class="img-35px" src="img/products/1.jpg" alt="Image"></td>
-                                        <td class="text-start">Material</td>
-                                        <td>material</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
+                                    <tr th:each="b : ${brands}">
+                                        <td th:text="${b.id}"></td>
+                                        <td th:text="${b.name}"></td>
+                                        <td th:text="${b.description}"></td>
                                         <td>
                                             <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
+                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand"
+                                                   th:attr="data-id=${b.id}, data-name=${b.name}, data-description=${b.description}">
                                                     <i class="fa-regular fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
@@ -421,178 +414,6 @@
                                                 </a>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img class="img-35px" src="img/products/2.jpg" alt="Image"></td>
-                                        <td class="text-start">Style</td>
-                                        <td>style</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img class="img-35px" src="img/products/3.jpg" alt="Image"></td>
-                                        <td class="text-start">Warranty</td>
-                                        <td>warrenty</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-30</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img class="img-35px" src="img/products/4.jpg" alt="Image"></td>
-                                        <td class="text-start">Occasion</td>
-                                        <td>occasion</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-03</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img class="img-35px" src="img/products/5.jpg" alt="Image"></td>
-                                        <td class="text-start">Capacity</td>
-                                        <td>capacity</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img class="img-35px" src="img/products/6.jpg" alt="Image"></td>
-                                        <td class="text-start">Packaging Type</td>
-                                        <td>packaging_type</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-04</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><img class="img-35px" src="img/products/7.jpg" alt="Image"></td>
-                                        <td class="text-start">Care Instructions</td>
-                                        <td>care_instructions</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-29</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><img class="img-35px" src="img/products/8.jpg" alt="Image"></td>
-                                        <td class="text-start">Connectivity</td>
-                                        <td>connectivity</td>
-                                        <td><span class="badge text-bg-danger">No</span></td>
-                                        <td>2024-12-01</td>
-                                        <td><span class="badge text-bg-primary">Publish</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><img class="img-35px" src="img/products/9.jpg" alt="Image"></td>
-                                        <td class="text-start">Age Group</td>
-                                        <td>age_group</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-12-02</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td><img class="img-35px" src="img/products/10.jpg" alt="Image"></td>
-                                        <td class="text-start">Pattern</td>
-                                        <td>pattern</td>
-                                        <td><span class="badge text-bg-primary">Yes</span></td>
-                                        <td>2024-11-28</td>
-                                        <td><span class="badge text-bg-secondary">Draft</span></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-primary" data-bs-toggle="modal" data-bs-target="#updateBrand">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-soft btn-action btn-danger">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -626,30 +447,23 @@
     <div class="modal fade" id="addBrand" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/brands/save}" th:method="post">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">Add New Brand</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="brand_name">Brand Name</label>
-                            <input type="text" placeholder="Brand Name" class="form-control">
+                            <label for="brandId">Brand ID</label>
+                            <input  name="id" type="text" id="brandId" placeholder="Brand ID" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="brand_description">Description</label>
-                            <textarea name="brand_description" id="brand_description" placeholder="Brand Description" class="form-control"></textarea>
+                            <label for="brandName">Brand Name</label>
+                            <input name="name" type="text" id="brandName" placeholder="Brand Name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="is_featured">Is Featured</label>
-                            <select name="is_featured" id="is_featured" class="form-select">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="brand_image">Brand Image</label>
-                            <input type="file" class="form-control" placeholder="Upload Brand Image" name="brand_image" id="brand_image">
+                            <label for="description">Description</label>
+                            <textarea  name="description" id="description" placeholder="Brand Description" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -661,34 +475,24 @@
         </div> 
     </div>
 
-    <!-- Update Brand Modal -->
+<!--     Update Brand Modal -->
     <div class="modal fade" id="updateBrand" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <form action="#">
+                <form th:action="@{/brands/update}" th:method="post">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">Add New Brand</h1>
+                        <h1 class="modal-title fs-5">Update Brand</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <input type="hidden" name="id" id="data-id">
                         <div class="mb-3">
-                            <label for="brand_name">Brand Name</label>
-                            <input type="text" placeholder="Brand Name" class="form-control" value="Samsung">
+                            <label>Brand Name</label>
+                            <input name="name" type="text" id="data-name" placeholder="Brand Name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="brand_description">Description</label>
-                            <textarea name="brand_description" id="brand_description" placeholder="Brand Description" class="form-control">This is samsung brand description</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="is_featured">Is Featured</label>
-                            <select name="is_featured" id="is_featured" class="form-select">
-                                <option value="Yes">Yes</option>
-                                <option value="No" selected>No</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="brand_image">Brand Image</label>
-                            <input type="file" class="form-control" placeholder="Upload Brand Image" name="brand_image" id="brand_image">
+                            <label>Description</label>
+                            <input name="description" id="data-description" placeholder="Brand Description" class="form-control"></input>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -697,9 +501,25 @@
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
     </div>
 
+    <script>
+        const updateModal = document.getElementById('updateBrand');
+        updateModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+
+            // Lấy dữ liệu từ nút đã click
+            const id = button.getAttribute('data-id');
+            const name = button.getAttribute('data-name');
+            const description = button.getAttribute('data-description');
+
+            // Gán vào form trong modal
+            updateModal.querySelector('input[name="id"]').value = id;
+            updateModal.querySelector('input[name="name"]').value = name;
+            updateModal.querySelector('input[name="description"]').value = description;
+        });
+    </script>
     <!--Javascripts-->
     <script src="js/plugins/jquery.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>

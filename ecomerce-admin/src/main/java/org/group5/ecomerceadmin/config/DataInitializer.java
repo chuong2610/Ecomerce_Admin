@@ -50,6 +50,7 @@ public class DataInitializer implements CommandLineRunner {
             admin.setPassword("123");
             admin.setRole(Role.ADMIN);
             admin.setFullName("Admin User");
+            admin.setActive(true);
             accountRepository.save(admin);
 
             Account customer = new Account();
@@ -57,6 +58,7 @@ public class DataInitializer implements CommandLineRunner {
             customer.setPassword("123");
             customer.setRole(Role.CUSTOMER);
             customer.setFullName("Customer User");
+            customer.setActive(true);
             accountRepository.save(customer);
 
             Account a = new Account();
@@ -90,6 +92,7 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Accounts initialized.");
         }
     }
+
 
 
     private void initBrands() {
