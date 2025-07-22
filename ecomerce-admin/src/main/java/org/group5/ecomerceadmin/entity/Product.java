@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "product")
 @Data
+@ToString(exclude = {"productOrders"})
 public class Product {
     @Id
     @Column(name = "id")
@@ -63,4 +64,35 @@ public class Product {
 
     public Product() {
     }
+
+    // Manual getters/setters for compatibility
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
+
+    public boolean isActive() { return isActive; }
+    public void setActive(boolean isActive) { this.isActive = isActive; }
+
+    public Brand getBrand() { return brand; }
+    public void setBrand(Brand brand) { this.brand = brand; }
+
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
+
+    public List<ProductOrder> getProductOrders() { return productOrders; }
+    public void setProductOrders(List<ProductOrder> productOrders) { this.productOrders = productOrders; }
 }

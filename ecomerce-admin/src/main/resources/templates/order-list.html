@@ -1,630 +1,1375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SalesZone - eCommerce HTML Admin Template</title>
 
-<!-- Mirrored from saleszone.codeblowing.com/order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:05:27 GMT -->
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalesZone - eCommerce HTML Admin Template</title>
+		<!-- Favicon Icon -->
+		<link
+			rel="shortcut icon"
+			th:href="@{/img/icon.png}"
+			type="image/x-icon"
+		/>
 
-    <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-    
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="style.css">
+		<!--Stylesheets-->
+		<link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/plugins/fontawesome.min.css}" />
+		<link rel="stylesheet" th:href="@{/style.css}" />
+	</head>
+	<body>
+		<!-- Wrapper Start -->
+		<div class="wrapper">
+			<!-- Header Start -->
+			<header class="top-header bg-primary">
+				<!--Logo Here-->
+				<div class="logobar">
+					<div class="logo">
+						<a th:href="@{/index.html}">
+							<img th:src="@{/img/icon-light.png}" alt="Logo" />
+							<span>SalesZone</span>
+						</a>
+					</div>
+					<span class="toggle-bar"
+						><i class="fa-solid fa-bars"></i
+					></span>
+				</div>
+				<div class="head-content">
+					<!--Notification Toggle Start-->
+					<div class="nofications toggle-item d-md-block d-none">
+						<div class="dropdown">
+							<a
+								class="icon"
+								href="#"
+								id="nofications"
+								data-bs-toggle="dropdown"
+							>
+								<i class="fa-regular fa-bell"></i>
+								<span>5</span>
+							</a>
+							<ul
+								class="dropdown-menu notification-list shadow"
+								aria-labelledby="nofications"
+							>
+								<div class="dropdown-header bg-warning">
+									<strong class="text-white"
+										>5 New Notification</strong
+									>
+								</div>
+								<!--Notification Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="notification-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-bullhorn"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong
+														>New
+														Notification</strong
+													>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Quis quam saepe blandi tiis
+													simil...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Notification Item End-->
 
-</head>
-<body>
-    <!-- Wrapper Start -->
-    <div class="wrapper">
-        <!-- Header Start -->
-        <header class="top-header bg-primary">
-            <!--Logo Here-->
-            <div class="logobar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="img/icon-light.png" alt="Logo">
-                        <span>SalesZone</span>
-                    </a>
-                </div>
-                <span class="toggle-bar"><i class="fa-solid fa-bars"></i></span>
-            </div>
-            <div class="head-content">
-                <!--Notification Toggle Start-->
-                <div class="nofications toggle-item d-md-block d-none">
-                    <div class="dropdown">
-                        <a class="icon" href="#" id="nofications" data-bs-toggle="dropdown">
-                            <i class="fa-regular fa-bell"></i>
-                            <span>5</span>
-                        </a>                      
-                        <ul class="dropdown-menu notification-list shadow" aria-labelledby="nofications">
-                            <div class="dropdown-header bg-warning">
-                                <strong class="text-white">5 New Notification</strong>
-                            </div>
-                            <!--Notification Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Notification</strong>
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Quis quam saepe blandi tiis simil...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Notification Item End-->
+								<!--Notification Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="notification-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-bullhorn"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong
+														>New
+														Notification</strong
+													>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Elige ndi amet non tenetur
+													porro...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Notification Item End-->
 
-                            <!--Notification Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Notification</strong>
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Elige ndi amet non tenetur porro...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Notification Item End-->
+								<!--Notification Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="notification-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-bullhorn"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong
+														>New
+														Notification</strong
+													>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Assu menda ducimus nemo
+													laudan...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Notification Item End-->
 
-                            <!--Notification Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Notification</strong>
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Assu menda ducimus nemo laudan...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Notification Item End-->
+								<!--Notification Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="notification-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-bullhorn"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong
+														>New
+														Notification</strong
+													>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Asper iores pariatur disti
+													nctio...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Notification Item End-->
 
-                            <!--Notification Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Notification</strong>
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Asper iores pariatur disti nctio...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Notification Item End-->
+								<!--Notification Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="notification-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-bullhorn"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong
+														>New
+														Notification</strong
+													>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Dolor sit afrg amet conse
+													ctetur...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Notification Item End-->
+							</ul>
+						</div>
+					</div>
+					<!--Notification Toggle End-->
 
-                            <!--Notification Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-bullhorn"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Notification</strong>
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Dolor sit afrg amet conse ctetur...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Notification Item End-->
-                        </ul>
-                    </div>
-                </div>
-                <!--Notification Toggle End-->
+					<!--Message Toggle Start-->
+					<div class="messages toggle-item d-md-block d-none">
+						<div class="dropdown">
+							<a
+								class="icon"
+								href="#"
+								id="messages"
+								data-bs-toggle="dropdown"
+							>
+								<i class="fa-regular fa-envelope"></i>
+								<span>5</span>
+							</a>
+							<ul
+								class="dropdown-menu message-list shadow"
+								aria-labelledby="messages"
+							>
+								<div class="dropdown-header bg-warning">
+									<strong class="text-white"
+										>5 New Messages</strong
+									>
+								</div>
+								<!--Message Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="message-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-envelope-open"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong>New Message</strong>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Quis quam saepe blandi tiis
+													simil...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Message Item End-->
 
-                <!--Message Toggle Start-->
-                <div class="messages toggle-item d-md-block d-none">
-                    <div class="dropdown">
-                        <a class="icon" href="#" id="messages" data-bs-toggle="dropdown">
-                            <i class="fa-regular fa-envelope"></i>
-                            <span>5</span>
-                        </a>                      
-                        <ul class="dropdown-menu message-list shadow" aria-labelledby="messages">
-                            <div class="dropdown-header bg-warning">
-                                <strong class="text-white">5 New Messages</strong>
-                            </div>
-                            <!--Message Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-envelope-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Message</strong> 
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Quis quam saepe blandi tiis simil...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Message Item End-->
+								<!--Message Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="message-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-envelope-open"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong>New Message</strong>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Elige ndi amet non tenetur
+													porro...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Message Item End-->
 
-                            <!--Message Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-envelope-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Message</strong> 
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Elige ndi amet non tenetur porro...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Message Item End-->
+								<!--Message Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="message-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-envelope-open"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong>New Message</strong>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Assu menda ducimus nemo
+													laudan...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Message Item End-->
 
-                            <!--Message Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-envelope-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Message</strong> 
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Assu menda ducimus nemo laudan...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Message Item End-->
+								<!--Message Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="message-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-envelope-open"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong>New Message</strong>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Asper iores pariatur disti
+													nctio...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Message Item End-->
 
-                            <!--Message Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-envelope-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Message</strong> 
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Asper iores pariatur disti nctio...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Message Item End-->
+								<!--Message Item Start-->
+								<li>
+									<a class="dropdown-item" href="#">
+										<div class="message-item">
+											<div class="icon">
+												<i
+													class="fa-solid fa-envelope-open"
+												></i>
+											</div>
+											<div class="content">
+												<div class="title">
+													<strong>New Message</strong>
+													<span>2 days ago</span>
+												</div>
+												<p>
+													Dolor sit afrg amet conse
+													ctetur...
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--Message Item End-->
+							</ul>
+						</div>
+					</div>
+					<!--Message Toggle End-->
 
-                            <!--Message Item Start-->
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-envelope-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="title">
-                                                <strong>New Message</strong> 
-                                                <span>2 days ago</span>
-                                            </div>
-                                            <p>Dolor sit afrg amet conse ctetur...</p>
-                                        </div>
-                                    </div>
-                                </a>                        
-                            </li>
-                            <!--Message Item End-->
-                        </ul>
-                      </div>
-                </div>
-                <!--Message Toggle End-->
+					<!--User Info Toggle Start-->
+					<div class="current-user toggle-item">
+						<div class="dropdown">
+							<a
+								href="#"
+								id="current_user"
+								data-bs-toggle="dropdown"
+							>
+								<img
+									class="img-40px circle"
+									th:src="@{/img/user1.png}"
+									alt="Image"
+								/>
+							</a>
+							<ul
+								class="dropdown-menu shadow"
+								aria-labelledby="current_user"
+							>
+								<li>
+									<a
+										class="dropdown-item"
+										href="update-profile.html"
+										>Profile</a
+									>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="employees.html"
+										>Employees</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="login.html"
+										>Logout</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--User Info Toggle End-->
+				</div>
+			</header>
+			<!-- Header End -->
 
-                <!--User Info Toggle Start-->
-                <div class="current-user toggle-item">
-                    <div class="dropdown">
-                        <a href="#" id="current_user" data-bs-toggle="dropdown">
-                            <img class="img-40px circle" src="img/user1.png" alt="Image">
-                        </a>                      
-                        <ul class="dropdown-menu shadow" aria-labelledby="current_user">
-                            <li><a class="dropdown-item" href="update-profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="employees.html">Employees</a></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
-                      </div>
-                </div>
-                <!--User Info Toggle End-->
-            </div>
-        </header>
-        <!-- Header End -->
+			<!--Sidebar Start-->
+			<div class="sidebar-wrapper bg-primary">
+				<div class="sidebar">
+					<div class="sidebar-links">
+						<ul class="side-nav">
+							<li class="nav-title">Backend</li>
+							<li>
+								<a href="index.html">
+									<span
+										><i class="fa-solid fa-gauge-high"></i
+										>Dashboard</span
+									>
+								</a>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-regular fa-paste"></i
+										>Pages</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="page-list.html">Page List</a>
+									</li>
+									<li>
+										<a href="page-add.html">Add Page</a>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-solid fa-database"></i
+										>Products</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="product-list.html"
+											>Product List</a
+										>
+									</li>
+									<li>
+										<a href="product-add.html"
+											>Add Product</a
+										>
+									</li>
+									<li>
+										<a href="product-attributes.html"
+											>Attributes</a
+										>
+									</li>
+									<li>
+										<a href="product-brands.html">Brands</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="category-list.html">
+									<span
+										><i class="fa-solid fa-explosion"></i
+										>Categories</span
+									>
+								</a>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-solid fa-users"></i
+										>Customers</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="customer-list.html"
+											>Customer List</a
+										>
+									</li>
+									<li>
+										<a href="customer-add.html"
+											>Add Customer</a
+										>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-solid fa-bag-shopping"></i
+										>Orders</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a th:href="@{/orders/order-list}"
+											>Order List</a
+										>
+									</li>
+									<li>
+										<a th:href="@{/orders/order-add}"
+											>Create Order</a
+										>
+									</li>
+									<li>
+										<a href="order-tracking.html"
+											>Order Tracking</a
+										>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-solid fa-location-dot"></i
+										>Location</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="country-list.html"
+											>Country List</a
+										>
+									</li>
+									<li>
+										<a href="state-list.html">State List</a>
+									</li>
+									<li>
+										<a href="city-list.html">City List</a>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-solid fa-wallet"></i
+										>Payments</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="payment-list.html"
+											>Payment List</a
+										>
+									</li>
+									<li>
+										<a href="payment-add.html">Add New</a>
+									</li>
+									<li>
+										<a href="invoice-list.html"
+											>Invoice List</a
+										>
+									</li>
+								</ul>
+							</li>
+							<li class="has-sub">
+								<a href="#">
+									<span
+										><i class="fa-regular fa-user"></i
+										>Users</span
+									>
+									<i class="fa-solid fa-angle-down"></i>
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="user-list.html">User List</a>
+									</li>
+									<li>
+										<a href="user-add.html">Add User</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="settings.html">
+									<span
+										><i class="fa-solid fa-gear"></i
+										>Settings</span
+									>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--Sidebar End-->
 
-        <!--Sidebar Start-->
-        <div class="sidebar-wrapper bg-primary">
-            <div class="sidebar">
-                <div class="sidebar-links">
-                    <ul class="side-nav">
-                        <li class="nav-title">Backend</li>
-                        <li>
-                            <a href="index.html">
-                                <span><i class="fa-solid fa-gauge-high"></i>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-regular fa-paste"></i>Pages</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="page-list.html">Page List</a></li>
-                                <li><a href="page-add.html">Add Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-database"></i>Products</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="product-list.html">Product List</a></li>
-                                <li><a href="product-add.html">Add Product</a></li>
-                                <li><a href="product-attributes.html">Attributes</a></li>
-                                <li><a href="product-brands.html">Brands</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="category-list.html">
-                                <span><i class="fa-solid fa-explosion"></i>Categories</span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-users"></i>Customers</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="customer-list.html">Customer List</a></li>
-                                <li><a href="customer-add.html">Add Customer</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-bag-shopping"></i>Orders</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="order-list.html">Order List</a></li>
-                                <li><a href="order-add.html">Create Order</a></li>
-                                <li><a href="order-tracking.html">Order Tracking</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-location-dot"></i>Location</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="country-list.html">Country List</a></li>
-                                <li><a href="state-list.html">State List</a></li>
-                                <li><a href="city-list.html">City List</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-solid fa-wallet"></i>Payments</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="payment-list.html">Payment List</a></li>
-                                <li><a href="payment-add.html">Add New</a></li>
-                                <li><a href="invoice-list.html">Invoice List</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <span><i class="fa-regular fa-user"></i>Users</span>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="user-list.html">User List</a></li>
-                                <li><a href="user-add.html">Add User</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="settings.html">
-                                <span><i class="fa-solid fa-gear"></i>Settings</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--Sidebar End-->
+			<!-- Main Content Area Start -->
+			<main>
+				<div class="main-wrapper">
+					<div class="card p-20px">
+						<div class="card-title fw-bold font-18px mb-3">
+							Order List
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table border">
+									<thead>
+										<tr>
+											<th>Order ID</th>
+											<th>Customer Name</th>
+											<th>Username</th>
+											<th>Products</th>
+											<th>Date</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Dynamic Orders from Database -->
+										<tr th:each="order : ${orders}">
+											<td th:text="${order.id}">
+												ORD001
+											</td>
+											<td
+												th:text="${order.account?.fullName ?: 'N/A'}"
+											>
+												John Doe
+											</td>
+											<td
+												th:text="${order.account?.username ?: 'N/A'}"
+											>
+												john@example.com
+											</td>
+											<td
+												th:text="${order.items != null ? #lists.size(order.items) + ' items' : '0 items'}"
+											>
+												3 items
+											</td>
+											<td
+												th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd')}"
+											>
+												2024-12-01
+											</td>
+											<td th:text="${order.status}">
+												Pending
+											</td>
+											<td>
+												<div class="d-flex gap-2">
+													<button
+														type="button"
+														class="btn btn-info btn-sm"
+														data-bs-toggle="modal"
+														th:data-bs-target="'#orderModal' + ${order.id}"
+														title="Xem chi tiết"
+													>
+														<i
+															class="fa-solid fa-eye"
+														></i>
+													</button>
+													<button
+														type="button"
+														class="btn btn-warning btn-sm"
+														data-bs-toggle="modal"
+														th:data-bs-target="'#editOrderModal' + ${order.id}"
+														title="Chỉnh sửa đơn hàng"
+													>
+														<i
+															class="fa-solid fa-edit"
+														></i>
+													</button>
+													<form
+														th:action="@{/orders/update/{orderId}(orderId=${order.id})}"
+														method="post"
+														class="d-inline"
+													>
+														<label
+															th:for="'statusString' + ${order.id}"
+															class="visually-hidden"
+															>Order Status</label
+														>
+														<select
+															name="statusString"
+															th:id="'statusString' + ${order.id}"
+															class="form-select form-select-sm action-select"
+															title="Order Status"
+															onchange="this.form.submit()"
+														>
+															<option
+																th:each="status : ${T(org.group5.ecomerceadmin.enums.OrderStatus).values()}"
+																th:value="${status.name()}"
+																th:selected="${status == order.status}"
+																th:text="${status.name().charAt(0) + status.name().substring(1).toLowerCase()}"
+															>
+																Status
+															</option>
+														</select>
+													</form>
+													<a
+														th:href="@{/orders/delete/{orderId}(orderId=${order.id})}"
+														class="btn btn-danger btn-sm"
+														onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"
+														title="Xóa đơn hàng"
+													>
+														<i
+															class="fa-solid fa-trash"
+														></i>
+													</a>
+												</div>
+											</td>
+										</tr>
 
-        <!-- Main Content Area Start -->
-        <main>
-            <div class="main-wrapper">
-                <div class="card p-20px mb-25px">
-                    <div class="card-title fw-bold font-18px">Order List</div>
-                    <div class="card-header mb-3 border-bottom-0 justify-content-end">
-                        <div class="search">
-                            <form action="#" class="position-relative">
-                                <input type="text" class="form-control ps-5" placeholder="Search Here">
-                                <button class="btn position-absolute top-50 translate-middle-y"><i class="fa-solid fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table border">
-                                <thead>
-                                    <tr>
-                                        <th>Order ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Email</th>
-                                        <th>Products</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>ORD1001</td>
-                                        <td>John Doe</td>
-                                        <td>johndoe@example.com</td>
-                                        <td>2 No</td>
-                                        <td>2024-12-01</td>
-                                        <td>Pending</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending" selected>Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1002</td>
-                                        <td>Jane Smith</td>
-                                        <td>janesmith@example.com</td>
-                                        <td>10 No</td>
-                                        <td>2024-12-02</td>
-                                        <td>Completed</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed" selected>Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1003</td>
-                                        <td>Bob Johnson</td>
-                                        <td>bobjohnson@example.com</td>
-                                        <td>5 No</td>
-                                        <td>2024-12-03</td>
-                                        <td>Shipped</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped" selected>Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1004</td>
-                                        <td>Alice Williams</td>
-                                        <td>alicew@example.com</td>
-                                        <td>3 No</td>
-                                        <td>2024-12-04</td>
-                                        <td>Cancelled</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled" selected>Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1005</td>
-                                        <td>Chris Evans</td>
-                                        <td>chrise@example.com</td>
-                                        <td>8 No</td>
-                                        <td>2024-12-05</td>
-                                        <td>Processing</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing" selected>Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1006</td>
-                                        <td>Mary Brown</td>
-                                        <td>maryb@example.com</td>
-                                        <td>7 No</td>
-                                        <td>2024-12-06</td>
-                                        <td>Pending</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending" selected>Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1007</td>
-                                        <td>Steve Rogers</td>
-                                        <td>stever@example.com</td>
-                                        <td>2 No</td>
-                                        <td>2024-12-07</td>
-                                        <td>Completed</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed" selected>Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1008</td>
-                                        <td>Natasha Roman</td>
-                                        <td>natashar@example.com</td>
-                                        <td>1 No</td>
-                                        <td>2024-12-08</td>
-                                        <td>Shipped</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped" selected>Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1009</td>
-                                        <td>Bruce Wayne</td>
-                                        <td>brucew@example.com</td>
-                                        <td>6 No</td>
-                                        <td>2024-12-08</td>
-                                        <td>Cancelled</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled" selected>Cancelled</option>
-                                                    <option value="Processing">Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORD1010</td>
-                                        <td>Diana Prince</td>
-                                        <td>dianap@example.com</td>
-                                        <td>15 No</td>
-                                        <td>2024-12-08</td>
-                                        <td>Processing</td>
-                                        <td>
-                                            <form action="#">
-                                                <select name="status" id="status" class="form-select form-select-sm action-select">
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Shipped">Shipped</option>
-                                                    <option value="Cancelled">Cancelled</option>
-                                                    <option value="Processing" selected>Processing</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- Pagination Start -->
-                        <div class="pagination-wrapper">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- Pagination End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="copyright text-center">
-                    <span><i class="fa-regular fa-copyright"></i> Copyright by Code Blowing</span>
-                </div>
-            </footer>
-            <!-- Footer End -->
-        </main>
-        <!-- Main Content Area End-->
-    </div>
-    <!-- Wrapper End -->
-    
-    <!--Javascripts-->
-    <script src="js/plugins/jquery.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-</body>
+										<!-- Fallback message when no orders exist -->
+										<tr
+											th:if="${orders == null or orders.isEmpty()}"
+										>
+											<td
+												colspan="7"
+												class="text-center text-muted py-4"
+											>
+												<i
+													class="fa-solid fa-box-open fa-2x mb-2 text-secondary"
+												></i
+												><br />
+												Chưa có đơn hàng nào trong hệ
+												thống
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 
-<!-- Mirrored from saleszone.codeblowing.com/order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jul 2025 06:05:27 GMT -->
+							<!-- Order Detail Modals (outside of table) -->
+							<div th:each="order : ${orders}">
+								<div
+									class="modal fade"
+									th:id="'orderModal' + ${order.id}"
+									tabindex="-1"
+									aria-labelledby="orderModalLabel"
+									aria-hidden="true"
+								>
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5
+													class="modal-title"
+													th:id="'orderModalLabel' + ${order.id}"
+												>
+													Chi tiết đơn hàng #<span
+														th:text="${order.id}"
+														>001</span
+													>
+												</h5>
+												<button
+													type="button"
+													class="btn-close"
+													data-bs-dismiss="modal"
+													aria-label="Close"
+												></button>
+											</div>
+											<div class="modal-body">
+												<div class="row">
+													<div class="col-md-6">
+														<h6
+															class="fw-bold text-primary"
+														>
+															Thông tin khách hàng
+														</h6>
+														<table
+															class="table table-borderless table-sm"
+														>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Tên khách
+																	hàng:
+																</td>
+																<td
+																	th:text="${order.account?.fullName ?: 'N/A'}"
+																>
+																	John Doe
+																</td>
+															</tr>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Username:
+																</td>
+																<td
+																	th:text="${order.account?.username ?: 'N/A'}"
+																>
+																	johndoe
+																</td>
+															</tr>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Role:
+																</td>
+																<td
+																	th:text="${order.account?.role ?: 'N/A'}"
+																>
+																	Customer
+																</td>
+															</tr>
+														</table>
+													</div>
+													<div class="col-md-6">
+														<h6
+															class="fw-bold text-primary"
+														>
+															Thông tin đơn hàng
+														</h6>
+														<table
+															class="table table-borderless table-sm"
+														>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Mã đơn hàng:
+																</td>
+																<td
+																	th:text="${order.id}"
+																>
+																	#001
+																</td>
+															</tr>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Ngày đặt:
+																</td>
+																<td
+																	th:text="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}"
+																>
+																	01/12/2024
+																	10:30
+																</td>
+															</tr>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Trạng thái:
+																</td>
+																<td>
+																	<span
+																		class="badge"
+																		th:classappend="${order.status.name() == 'PENDING' ? 'bg-warning' :
+																						   order.status.name() == 'PROCESSING' ? 'bg-info' :
+																						   order.status.name() == 'COMPLETED' ? 'bg-success' :
+																						   order.status.name() == 'SHIPPED' ? 'bg-primary' : 'bg-danger'}"
+																		th:text="${order.status.name().charAt(0) + order.status.name().substring(1).toLowerCase()}"
+																	>
+																		Pending
+																	</span>
+																</td>
+															</tr>
+															<tr>
+																<td
+																	class="fw-semibold"
+																>
+																	Tổng tiền:
+																</td>
+																<td
+																	class="fw-bold text-success"
+																	th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																>
+																	100,000 VNĐ
+																</td>
+															</tr>
+														</table>
+													</div>
+												</div>
+
+												<hr />
+
+												<h6
+													class="fw-bold text-primary"
+												>
+													Chi tiết sản phẩm
+												</h6>
+												<div class="table-responsive">
+													<table
+														class="table table-striped"
+													>
+														<thead>
+															<tr>
+																<th>
+																	Sản phẩm
+																</th>
+																<th>
+																	Số lượng
+																</th>
+																<th>Đơn giá</th>
+																<th>
+																	Thành tiền
+																</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr
+																th:each="item : ${order.items}"
+															>
+																<td>
+																	<div
+																		class="d-flex align-items-center"
+																	>
+																		<img
+																			th:src="@{'/img/products/' + ${item.product.image}}"
+																			alt="Product"
+																			class="me-2"
+																			style="
+																				width: 40px;
+																				height: 40px;
+																				object-fit: cover;
+																			"
+																		/>
+																		<div>
+																			<div
+																				class="fw-semibold"
+																				th:text="${item.product.name}"
+																			>
+																				Product
+																				Name
+																			</div>
+																			<small
+																				class="text-muted"
+																				th:text="${item.product.id}"
+																				>PRD001</small
+																			>
+																		</div>
+																	</div>
+																</td>
+																<td
+																	th:text="${item.quantity}"
+																>
+																	2
+																</td>
+																<td
+																	th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																>
+																	50,000 VNĐ
+																</td>
+																<td
+																	class="fw-semibold"
+																	th:text="${#numbers.formatDecimal(item.quantity * item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																>
+																	100,000 VNĐ
+																</td>
+															</tr>
+														</tbody>
+														<tfoot>
+															<tr
+																class="table-active"
+															>
+																<td
+																	colspan="3"
+																	class="fw-bold text-end"
+																>
+																	TỔNG CỘNG:
+																</td>
+																<td
+																	class="fw-bold text-success"
+																	th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																>
+																	100,000 VNĐ
+																</td>
+															</tr>
+														</tfoot>
+													</table>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-bs-dismiss="modal"
+												>
+													Đóng
+												</button>
+												<form
+													th:action="@{/orders/update/{orderId}(orderId=${order.id})}"
+													method="post"
+													class="d-inline"
+												>
+													<select
+														name="statusString"
+														class="form-select form-select-sm d-inline-block w-auto me-2"
+													>
+														<option
+															th:each="status : ${T(org.group5.ecomerceadmin.enums.OrderStatus).values()}"
+															th:value="${status.name()}"
+															th:selected="${status == order.status}"
+															th:text="${status.name().charAt(0) + status.name().substring(1).toLowerCase()}"
+														>
+															Status
+														</option>
+													</select>
+													<button
+														type="submit"
+														class="btn btn-primary btn-sm"
+													>
+														Cập nhật trạng thái
+													</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Edit Order Modals -->
+							<div th:each="order : ${orders}">
+								<div
+									class="modal fade"
+									th:id="'editOrderModal' + ${order.id}"
+									tabindex="-1"
+									aria-labelledby="editOrderModalLabel"
+									aria-hidden="true"
+								>
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5
+													class="modal-title"
+													th:id="'editOrderModalLabel' + ${order.id}"
+												>
+													Chỉnh sửa đơn hàng #<span
+														th:text="${order.id}"
+														>001</span
+													>
+												</h5>
+												<button
+													type="button"
+													class="btn-close"
+													data-bs-dismiss="modal"
+													aria-label="Close"
+												></button>
+											</div>
+											<form
+												th:action="@{/orders/update/{orderId}(orderId=${order.id})}"
+												method="post"
+											>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<h6
+																class="fw-bold text-primary mb-3"
+															>
+																Thông tin khách
+																hàng
+															</h6>
+															<div class="mb-3">
+																<label
+																	class="form-label fw-semibold"
+																	>Tên khách
+																	hàng</label
+																>
+																<input
+																	type="text"
+																	class="form-control"
+																	th:value="${order.account?.fullName ?: 'N/A'}"
+																	readonly
+																/>
+															</div>
+															<div class="mb-3">
+																<label
+																	class="form-label fw-semibold"
+																	>Username</label
+																>
+																<input
+																	type="text"
+																	class="form-control"
+																	th:value="${order.account?.username ?: 'N/A'}"
+																	readonly
+																/>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<h6
+																class="fw-bold text-primary mb-3"
+															>
+																Thông tin đơn
+																hàng
+															</h6>
+															<div class="mb-3">
+																<label
+																	class="form-label fw-semibold"
+																	>Mã đơn
+																	hàng</label
+																>
+																<input
+																	type="text"
+																	class="form-control"
+																	th:value="${order.id}"
+																	readonly
+																/>
+															</div>
+															<div class="mb-3">
+																<label
+																	class="form-label fw-semibold"
+																	>Ngày
+																	đặt</label
+																>
+																<input
+																	type="text"
+																	class="form-control"
+																	th:value="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}"
+																	readonly
+																/>
+															</div>
+															<div class="mb-3">
+																<label
+																	for="editStatus"
+																	class="form-label fw-semibold"
+																	>Trạng thái
+																	<span
+																		class="text-danger"
+																		>*</span
+																	></label
+																>
+																<select
+																	name="statusString"
+																	id="editStatus"
+																	class="form-select"
+																	required
+																>
+																	<option
+																		th:each="status : ${T(org.group5.ecomerceadmin.enums.OrderStatus).values()}"
+																		th:value="${status.name()}"
+																		th:selected="${status == order.status}"
+																		th:text="${status.name().charAt(0) + status.name().substring(1).toLowerCase()}"
+																	>
+																		Status
+																	</option>
+																</select>
+															</div>
+														</div>
+													</div>
+
+													<hr />
+
+													<h6
+														class="fw-bold text-primary mb-3"
+													>
+														Chi tiết sản phẩm
+													</h6>
+													<div
+														class="table-responsive"
+													>
+														<table
+															class="table table-striped"
+														>
+															<thead>
+																<tr>
+																	<th>
+																		Sản phẩm
+																	</th>
+																	<th
+																		style="
+																			width: 120px;
+																		"
+																	>
+																		Số lượng
+																	</th>
+																	<th>
+																		Đơn giá
+																	</th>
+																	<th>
+																		Thành
+																		tiền
+																	</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr
+																	th:each="item, itemStat : ${order.items}"
+																>
+																	<td>
+																		<div
+																			class="d-flex align-items-center"
+																		>
+																			<img
+																				th:src="@{'/img/products/' + ${item.product.image}}"
+																				alt="Product"
+																				class="me-2"
+																				style="
+																					width: 40px;
+																					height: 40px;
+																					object-fit: cover;
+																				"
+																			/>
+																			<div>
+																				<div
+																					class="fw-semibold"
+																					th:text="${item.product.name}"
+																				>
+																					Product
+																					Name
+																				</div>
+																				<small
+																					class="text-muted"
+																					th:text="${item.product.id}"
+																					>PRD001</small
+																				>
+																			</div>
+																		</div>
+																	</td>
+																	<td>
+																		<input
+																			type="number"
+																			class="form-control form-control-sm quantity-input"
+																			th:value="${item.quantity}"
+																			th:name="'items[' + ${itemStat.index} + '].quantity'"
+																			min="1"
+																			onchange="updateItemTotal(this)"
+																		/>
+																		<input
+																			type="hidden"
+																			th:name="'items[' + ${itemStat.index} + '].productId'"
+																			th:value="${item.product.id}"
+																		/>
+																		<input
+																			type="hidden"
+																			th:name="'items[' + ${itemStat.index} + '].price'"
+																			th:value="${item.price}"
+																			class="item-price"
+																		/>
+																	</td>
+																	<td
+																		th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																	>
+																		50,000
+																		VNĐ
+																	</td>
+																	<td
+																		class="fw-semibold item-total"
+																		th:text="${#numbers.formatDecimal(item.quantity * item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																	>
+																		100,000
+																		VNĐ
+																	</td>
+																</tr>
+															</tbody>
+															<tfoot>
+																<tr
+																	class="table-active"
+																>
+																	<td
+																		colspan="3"
+																		class="fw-bold text-end"
+																	>
+																		TỔNG
+																		CỘNG:
+																	</td>
+																	<td
+																		class="fw-bold text-success"
+																		id="orderTotal"
+																		th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+																	>
+																		100,000
+																		VNĐ
+																	</td>
+																</tr>
+															</tfoot>
+														</table>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button
+														type="button"
+														class="btn btn-secondary"
+														data-bs-dismiss="modal"
+													>
+														Hủy
+													</button>
+													<button
+														type="submit"
+														class="btn btn-primary"
+													>
+														<i
+															class="fa-solid fa-save me-1"
+														></i>
+														Lưu thay đổi
+													</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pagination Start -->
+							<div
+								class="pagination-wrapper"
+								th:if="${orders != null and not orders.isEmpty()}"
+							>
+								<ul class="pagination justify-content-end">
+									<li class="page-item">
+										<a class="page-link" href="#"
+											><i
+												class="fa-solid fa-arrow-left-long"
+											></i
+										></a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="#">1</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="#">2</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="#">3</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="#"
+											><i
+												class="fa-solid fa-arrow-right-long"
+											></i
+										></a>
+									</li>
+								</ul>
+							</div>
+							<!-- Pagination End -->
+						</div>
+					</div>
+				</div>
+				<!-- Footer Start -->
+				<footer class="footer">
+					<div class="copyright text-center">
+						<span
+							><i class="fa-regular fa-copyright"></i> Copyright
+							by Code Blowing</span
+						>
+					</div>
+				</footer>
+				<!-- Footer End -->
+			</main>
+			<!-- Main Content Area End-->
+		</div>
+		<!-- Wrapper End -->
+
+		<!--Javascripts-->
+		<script th:src="@{/js/plugins/jquery.min.js}"></script>
+		<script th:src="@{/js/plugins/bootstrap.min.js}"></script>
+		<script th:src="@{/js/custom.js}"></script>
+
+		<script>
+			function updateItemTotal(quantityInput) {
+				const row = quantityInput.closest('tr');
+				const quantity = parseInt(quantityInput.value) || 0;
+				const price =
+					parseFloat(row.querySelector('.item-price').value) || 0;
+				const itemTotal = quantity * price;
+
+				// Update item total display
+				row.querySelector('.item-total').textContent =
+					new Intl.NumberFormat('vi-VN').format(itemTotal) + ' VNĐ';
+
+				// Update order total
+				updateOrderTotal();
+			}
+
+			function updateOrderTotal() {
+				let total = 0;
+				document
+					.querySelectorAll('.quantity-input')
+					.forEach((input) => {
+						const row = input.closest('tr');
+						const quantity = parseInt(input.value) || 0;
+						const price =
+							parseFloat(
+								row.querySelector('.item-price').value
+							) || 0;
+						total += quantity * price;
+					});
+
+				const orderTotalElement = document.getElementById('orderTotal');
+				if (orderTotalElement) {
+					orderTotalElement.textContent =
+						new Intl.NumberFormat('vi-VN').format(total) + ' VNĐ';
+				}
+			}
+		</script>
+	</body>
 </html>

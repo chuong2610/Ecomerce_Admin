@@ -61,6 +61,34 @@ public class DataInitializer implements CommandLineRunner {
             customer.setActive(true);
             accountRepository.save(customer);
 
+            Account a = new Account();
+            a.setUsername("nguyenvana");
+            a.setPassword("123");
+            a.setRole(Role.CUSTOMER);
+            a.setFullName("Nguyen Van A");
+            accountRepository.save(a);
+
+            Account b = new Account();
+            b.setUsername("nguyenvanb");
+            b.setPassword("123");
+            b.setRole(Role.CUSTOMER);
+            b.setFullName("Nguyen Van B");
+            accountRepository.save(b);
+
+            Account c = new Account();
+            c.setUsername("nguyenvanc");
+            c.setPassword("123");
+            c.setRole(Role.CUSTOMER);
+            c.setFullName("Nguyen Van C");
+            accountRepository.save(c);
+
+            Account d = new Account();
+            d.setUsername("nguyenvand");
+            d.setPassword("123");
+            d.setRole(Role.CUSTOMER);
+            d.setFullName("Nguyen Van D");
+            accountRepository.save(d);
+
             System.out.println("Accounts initialized.");
         }
     }
