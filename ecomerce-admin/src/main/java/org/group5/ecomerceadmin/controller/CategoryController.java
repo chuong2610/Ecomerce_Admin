@@ -1,5 +1,6 @@
 package org.group5.ecomerceadmin.controller;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.group5.ecomerceadmin.dto.CategoryRequestDTO;
 import org.group5.ecomerceadmin.dto.CategoryUpdateDTO;
@@ -25,7 +26,10 @@ public class CategoryController {
     }
 
     @GetMapping
-    public String getAllforAdmin(@RequestParam(value = "kw", required = false) String keyword, Model model) {
+    public String getAllforAdmin(@RequestParam(value = "kw", required = false) String keyword, Model model, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
         List<Category> categories = categoryService.getAllforAdmin();
         if (keyword != null && !keyword.isEmpty()) {
             model.addAttribute("categories", categoryService.searchByNameForAdmin(keyword));
@@ -45,9 +49,6 @@ public class CategoryController {
 
     @PostMapping
     public String create(@ModelAttribute("category") CategoryRequestDTO category) {
-        System.out.println(category.getId());
-        System.out.println(category.getName());
-        System.out.println(category.getDescription());
         categoryService.create(category);
         return "redirect:/categories";
     }

@@ -1,5 +1,6 @@
 package org.group5.ecomerceadmin.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.group5.ecomerceadmin.dto.ProductDTO;
 import org.group5.ecomerceadmin.payload.request.ProductRequest;
 import org.group5.ecomerceadmin.service.BrandService;
@@ -23,7 +24,10 @@ public class ProductController {
     @Autowired
     private BrandService brandService;
     @GetMapping("/products")
-    public String findAll(@RequestParam(value = "search", required = false, defaultValue = "") String search, Model model) {
+    public String findAll(@RequestParam(value = "search", required = false, defaultValue = "") String search, Model model, HttpSession session) {
+            if (session.getAttribute("user") == null) {
+                return "redirect:/login";
+            }
             if(search.equals("")) {
                 model.addAttribute("products", productService.findAll());
             } else {
@@ -42,7 +46,10 @@ public class ProductController {
         }
     }
     @GetMapping("/products/add")
-    public String addProduct(Model model) {
+    public String addProduct(Model model, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("product", new ProductRequest());
         model.addAttribute("brands", brandService.getAll());
         model.addAttribute("categories", categoryService.getAllforAdmin());
@@ -56,7 +63,10 @@ public class ProductController {
         return "redirect:/products";
     }
     @GetMapping("/products/edit/{id}")
-    public String update(@PathVariable String id, Model model) {
+    public String update(@PathVariable String id, Model model, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("product", productService.findProductCreateDTOById(id));
         model.addAttribute("brands", brandService.getAll());
         model.addAttribute("categories", categoryService.getAllforAdmin());
@@ -64,7 +74,10 @@ public class ProductController {
         return "product-add";
     }
     @GetMapping("/products/delete/{id}")
-    public String delete(@PathVariable String id) {
+    public String delete(@PathVariable String id,HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
         productService.delete(id);
         return "redirect:/products";
     }

@@ -1,5 +1,6 @@
 package org.group5.ecomerceadmin.controller;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.group5.ecomerceadmin.entity.Brand;
 import org.group5.ecomerceadmin.payload.request.BrandRequest;
@@ -22,7 +23,10 @@ public class BrandController {
     }
 
     @GetMapping("/brands")
-    public String getAll(@RequestParam(value = "search", required = false, defaultValue = "") String search,Model model) {
+    public String getAll(@RequestParam(value = "search", required = false, defaultValue = "") String search, Model model, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
         if(search.equals("")) {
             List<BrandResponse> responses = brandService.getAll().stream().map(brandService::toResponse).toList();
             model.addAttribute("brands", responses);
