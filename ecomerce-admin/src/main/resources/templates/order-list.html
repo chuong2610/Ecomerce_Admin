@@ -554,9 +554,8 @@
                                                         </td>
                                                         <td
                                                                 class="fw-bold text-success"
-                                                                th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+                                                                th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' $'"
                                                         >
-                                                            100,000 VNĐ
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -628,13 +627,13 @@
                                                         2
                                                     </td>
                                                     <td
-                                                            th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+                                                            th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' $'"
                                                     >
-                                                        50,000 VNĐ
+                                                        50,000 $
                                                     </td>
                                                     <td
                                                             class="fw-semibold"
-                                                            th:text="${#numbers.formatDecimal(item.quantity * item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+                                                            th:text="${#numbers.formatDecimal(item.price * item.quantity, 0, 'COMMA', 0, 'POINT')} + ' $'"
                                                     >
                                                         100,000 VNĐ
                                                     </td>
@@ -652,7 +651,7 @@
                                                     </td>
                                                     <td
                                                             class="fw-bold text-success"
-                                                            th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+                                                            th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' $'"
                                                     >
                                                         100,000 VNĐ
                                                     </td>
@@ -947,7 +946,7 @@
                                                         <td
                                                                 class="fw-bold text-success"
                                                                 id="orderTotal"
-                                                                th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"
+                                                                th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' $'"
                                                         >
                                                             100,000
                                                             VNĐ

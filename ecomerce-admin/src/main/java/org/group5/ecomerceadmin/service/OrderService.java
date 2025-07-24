@@ -67,7 +67,7 @@ public class OrderService {
             total += itemPrice;
             System.out.println("Item price: " + itemPrice + ", Running total: " + total);
 
-            ProductOrder po = new ProductOrder(product, order, item.getQuantity(), itemPrice);
+            ProductOrder po = new ProductOrder(product, order, item.getQuantity(), product.getPrice());
             productOrders.add(po);
         }
 
